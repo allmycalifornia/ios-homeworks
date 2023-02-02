@@ -49,12 +49,13 @@ final class MainTabBarViewController: UITabBarController {
         feedVC.tabBarItem.title = "Лента"
         feedVC.tabBarItem.image = UIImage(systemName: "newspaper.circle")
         
+        let profileController = UINavigationController(rootViewController: profileVC)
         profileVC.tabBarItem.title = "Профиль"
         profileVC.tabBarItem.image = UIImage(systemName: "person.crop.circle")
         
         postVC.tabBarItem.title = "Пост"
         postVC.tabBarItem.image = UIImage(systemName: "signpost.and.arrowtriangle.up.circle")
         
-        viewControllers = [navigationController, profileVC]
+        viewControllers = [navigationController, profileController]
     }
 }

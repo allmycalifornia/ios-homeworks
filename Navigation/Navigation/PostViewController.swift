@@ -9,20 +9,7 @@ import UIKit
 
 final class PostViewController: UIViewController {
     
-//    private let backButton: UIButton = {
-//        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-//        button.setTitle("Назад", for: .normal)
-//        button.backgroundColor = .black
-//        return button
-//    }()
-//
-//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    var titlePost: String = "Anonymous"
     
     override func loadView() {
         super.loadView()
@@ -30,9 +17,13 @@ final class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
-       // setupButton()
+        func setupView() {
+            self.view.backgroundColor = .white
+            self.navigationItem.title = titlePost
+        }
     }
+    
+
     
 //    private func setupButton() {
 //        view.addSubview(backButton)
@@ -81,5 +72,6 @@ final class PostViewController: UIViewController {
     
     deinit {
     }
+    
 }
 

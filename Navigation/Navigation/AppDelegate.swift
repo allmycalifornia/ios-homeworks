@@ -41,10 +41,10 @@ final class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setupConrollers()
+        setupControllers()
     }
     
-    private func setupConrollers() {
+    private func setupControllers() {
         let navigationController = UINavigationController(rootViewController: feedVC)
         feedVC.tabBarItem.title = "Лента"
         feedVC.tabBarItem.image = UIImage(systemName: "newspaper.circle")

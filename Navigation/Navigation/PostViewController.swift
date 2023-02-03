@@ -9,7 +9,7 @@ import UIKit
 
 final class PostViewController: UIViewController {
     
-    var titlePost: String = "Anonymous"
+    var titlePost: String = "New post"
     
     override func loadView() {
         super.loadView()
@@ -17,10 +17,9 @@ final class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        func setupView() {
-            self.view.backgroundColor = .white
-            self.navigationItem.title = titlePost
-        }
+        view.backgroundColor = .lightGray
+        self.title = titlePost
+
     }
     
 

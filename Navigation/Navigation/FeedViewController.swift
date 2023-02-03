@@ -53,6 +53,7 @@ final class FeedViewController: UIViewController {
         @objc private func tapAction() {
             let postVC = PostViewController()
             postVC.titlePost = post.title
+            //present(postVC, animated: true)
             navigationController?.pushViewController(postVC, animated: true)
         }
     

@@ -34,27 +34,10 @@ final class PostViewController: UIViewController {
         let infoVC = InfoViewController()
         infoVC.title = "Инфо"
         infoVC.modalPresentationStyle = .fullScreen
-        present(infoVC, animated: true)
-        //navigationController?.pushViewController(infoVC, animated: true)
+        navigationController?.pushViewController(infoVC, animated: true)
     }
 
-    
-//    private func setupButton() {
-//        view.addSubview(backButton)
-//        backButton.center = view.center
-//        backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-//    }
-//
-//    @objc private func backAction() {
-//        let alert = UIAlertController(title: "Перейти назад", message: "Вы точно хотите выйти?", preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "Выйти", style: .default) { _ in
-//            self.navigationController?.popViewController(animated: true)
-//        }
-//        let cancelAction = UIAlertAction(title: "Отмена", style: .destructive)
-//        alert.addAction(cancelAction)
-//        alert.addAction(okAction)
-//        present(alert, animated: true)
-//    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

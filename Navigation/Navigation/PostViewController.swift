@@ -13,6 +13,7 @@ final class PostViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        infoBarItem()
     }
     
     override func viewDidLoad() {
@@ -22,6 +23,20 @@ final class PostViewController: UIViewController {
 
     }
     
+    // верхняя кнопка "Инфо"
+    private func infoBarItem() {
+        let infoBarItem = UIBarButtonItem(title: "Инфо", style: .plain, target: self, action: #selector(infoBarItemAction))
+        navigationItem.rightBarButtonItem = infoBarItem
+    }
+    
+    // переход на экран "Инфо"
+    @objc private func infoBarItemAction() {
+        let infoVC = InfoViewController()
+        infoVC.title = "Инфо"
+        infoVC.modalPresentationStyle = .fullScreen
+        present(infoVC, animated: true)
+        //navigationController?.pushViewController(infoVC, animated: true)
+    }
 
     
 //    private func setupButton() {

@@ -53,9 +53,6 @@ final class MainTabBarViewController: UITabBarController {
         profileVC.tabBarItem.title = "Профиль"
         profileVC.tabBarItem.image = UIImage(systemName: "person.crop.circle")
         
-//        postVC.tabBarItem.title = "Пост"
-//        postVC.tabBarItem.image = UIImage(systemName: "signpost.and.arrowtriangle.up.circle")
-//
         viewControllers = [navigationController, profileController]
     }
 }

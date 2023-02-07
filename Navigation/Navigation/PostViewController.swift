@@ -34,7 +34,7 @@ final class PostViewController: UIViewController {
         let infoVC = InfoViewController()
         infoVC.title = "Инфо"
         infoVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(infoVC, animated: true)
+        present(infoVC, animated: true)
     }
 
 

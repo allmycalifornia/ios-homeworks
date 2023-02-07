@@ -68,7 +68,6 @@
 				8E0CDA2E29890EDA00618444 /* AppDelegate.swift */,
 				8E0CDA3029890EDA00618444 /* SceneDelegate.swift */,
 				8E6EC75E298A82F500E96FD3 /* FeedViewController.swift */,
-				8E6EC760298A830F00E96FD3 /* ProfileViewController.swift */,
 				8E6EC762298A86EE00E96FD3 /* PostViewController.swift */,
 				8E9F6869298E5BBE003520DD /* InfoViewController.swift */,
 				8EFAC919298BEED1003B677D /* Post.swift */,
@@ -82,6 +81,7 @@
 		8EB58F7429923FB100F565DD /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				8E6EC760298A830F00E96FD3 /* ProfileViewController.swift */,
 				8EB58F752992407500F565DD /* ProfileHeaderView.swift */,
 			);
 			path = Profile;

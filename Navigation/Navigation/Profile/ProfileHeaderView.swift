@@ -8,13 +8,16 @@
 import UIKit
 
 class ProfileHeaderView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    
+    private var avatarView = AvatarView(frame: CGRect(x: 16, y: 106, width: 100, height: 100))
+    
+        
+        func setupProfileHeaderView() {
+            addSubview(avatarView)
+            
+            avatarView.image = UIImage(named: "avatar.jpg")
+            avatarView.customize()
+        }
     }
-    */
 
-}

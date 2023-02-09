@@ -24,9 +24,7 @@ class ProfileViewController: UIViewController {
         profileHeaderView.setupProfileHeaderView()
         
     }
-    
-   
-    
+        
     
     
 

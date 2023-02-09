@@ -55,7 +55,7 @@ class ProfileHeaderView: UIView {
     
     class ShowStatusButton: UIButton {
         private let showStatusButton: UIButton = {
-            let button = UIButton(type: .system)
+            lazy var button = UIButton(type: .system)
             button.setTitle("Show status", for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = .systemBlue
@@ -63,6 +63,7 @@ class ProfileHeaderView: UIView {
             button.layer.cornerRadius = 4
             button.layer.shadowColor = UIColor.black.cgColor
             button.layer.shadowOpacity = 0.7
+            button.addTarget(ProfileHeaderView.ShowStatusButton.self, action: #selector(statusButtonAction), for: .touchUpInside)
             return button
         }()
     }
@@ -97,6 +98,10 @@ class ProfileHeaderView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func statusButtonAction() {
+        print(userStatusLabel.text!)
     }
 }
 

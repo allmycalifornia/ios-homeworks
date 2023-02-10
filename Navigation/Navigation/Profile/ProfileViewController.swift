@@ -22,8 +22,11 @@ class ProfileViewController: UIViewController {
         view.addSubview(profileHeaderView)
         profileHeaderView.backgroundColor = .lightGray
         profileHeaderView.setupProfileHeaderView()
-        
+        profileHeaderView.statusButtonChanger().addTarget(self, action: #selector(statusButtonPressed), for: .touchUpInside)
     }
     
+    @objc private func statusButtonPressed() {
+        profileHeaderView.statusLabelChanger().text = profileHeaderView.statusTextFieldChanger().text
+    }
 
 }

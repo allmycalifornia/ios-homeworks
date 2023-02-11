@@ -34,7 +34,7 @@ final class PostViewController: UIViewController {
         let infoVC = InfoViewController()
         infoVC.title = "Инфо"
         infoVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(infoVC, animated: true)
+        present(infoVC, animated: true)
     }
 
 
@@ -51,9 +51,9 @@ final class PostViewController: UIViewController {
         super.viewDidLayoutSubviews()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)

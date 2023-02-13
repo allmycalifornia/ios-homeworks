@@ -91,6 +91,7 @@ class ProfileHeaderView: UIView {
     
       //сборка всех элементов для вывода на экран
     func setupProfileHeaderView() {
+        backgroundColor = .lightGray
         addSubview(userImageView)
         addSubview(userNameLabel)
         addSubview(userStatusLabel)
@@ -100,6 +101,7 @@ class ProfileHeaderView: UIView {
         
         // установка констрейнтов для всех элементов
         NSLayoutConstraint.activate([
+            
             userImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             userImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             userImageView.heightAnchor.constraint(equalToConstant: 100),

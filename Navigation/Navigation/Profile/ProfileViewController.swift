@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController {
     }()
     
     
-    // добавляем нужные элементы на контроллер
+    // добавляем элементы на контроллер
     func setupProfileViewController() {
         profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(profileHeaderView)
@@ -41,9 +41,9 @@ class ProfileViewController: UIViewController {
             newButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             newButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             newButton.heightAnchor.constraint(equalToConstant: 50)
-                ])
-        }
-        
+        ])
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +52,9 @@ class ProfileViewController: UIViewController {
         setupProfileViewController()
     }
     
-    @objc private func statusButtonPressed() {
-        profileHeaderView.statusLabelChanger().text = profileHeaderView.statusTextFieldChanger().text
-    }
-
+        @objc private func statusButtonPressed() {
+            profileHeaderView.statusLabelChanger().text = profileHeaderView.statusTextFieldChanger().text
+        }
+    
+    
 }

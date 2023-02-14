@@ -11,6 +11,8 @@ class ProfileViewController: UIViewController {
     
     private let profileHeaderView = ProfileHeaderView()
     
+    
+    // добавляем кнопку
     private let newButton: UIButton = {
         var button = UIButton(type: .system)
         button = UIButton()
@@ -21,13 +23,15 @@ class ProfileViewController: UIViewController {
         return button
     }()
     
+    
+    // добавляем нужные элементы на контроллер
     func setupProfileViewController() {
+        profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(profileHeaderView)
         view.addSubview(newButton)
         
         
         NSLayoutConstraint.activate([
-            
             profileHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -40,18 +44,11 @@ class ProfileViewController: UIViewController {
                 ])
         }
         
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        profileHeaderView.frame = view.frame
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Мой профиль"
-        //view.addSubview(profileHeaderView)
-        profileHeaderView.setupProfileHeaderView()
         profileHeaderView.statusButtonChanger().addTarget(self, action: #selector(statusButtonPressed), for: .touchUpInside)
-        //view.addSubview(newButton)
         setupProfileViewController()
     }
     

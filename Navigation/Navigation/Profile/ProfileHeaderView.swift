@@ -11,8 +11,8 @@ class ProfileHeaderView: UIView {
     
         // аватарка пользователя
         private let userImageView: UIImageView = {
-            let imageView = UIImageView(frame: CGRect(x: 16, y: 106, width: 100, height: 100))
-            imageView.backgroundColor = .red
+            let imageView = UIImageView()
+            imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.image = UIImage(named: "avatar")
             imageView.contentMode = .scaleAspectFill
             imageView.backgroundColor = .black
@@ -26,7 +26,8 @@ class ProfileHeaderView: UIView {
     
         // имя пользователя
         private let userNameLabel: UILabel = {
-            let label = UILabel(frame: CGRect(x: 132, y: 117, width: 200, height: 20))
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
             label.text = "Rumi Hiiragi"
             label.textColor = .black
             label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -35,7 +36,8 @@ class ProfileHeaderView: UIView {
     
         // статус пользователя
         private lazy var userStatusLabel: UILabel = {
-            let label = UILabel(frame: CGRect(x: 132, y: 146, width: 200, height: 20))
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
             label.text = "Waiting for something..."
             label.textColor = .darkGray
             label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
@@ -45,21 +47,23 @@ class ProfileHeaderView: UIView {
         // кнопка установки статуса пользователя
         private let showStatusButton: UIButton = {
             var button = UIButton(type: .system)
-            button = UIButton(frame: CGRect(x: 16, y: 220, width: 358, height: 50))
+            button = UIButton()
+            button.translatesAutoresizingMaskIntoConstraints = false
             button.setTitle("Show status", for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = .systemBlue
             button.layer.shadowOffset = CGSize(width: 4, height: 4)
-            button.layer.cornerRadius = 16   // в задании написано 4, но на макете углы гораздо более скруглённые
+            button.layer.cornerRadius = 16
             button.layer.shadowColor = UIColor.black.cgColor
             button.layer.shadowOpacity = 0.7
-            //button.addTarget(ProfileHeaderView.self, action: #selector(statusButtonAction), for: .touchUpInside)  - убрал в коммент из-за задания со звёздочкой
+
             return button
         }()
     
     // поле для ввода статуса пользователя
     private let statusTextField: UITextField = {
-        let textField = UITextField(frame: CGRect(x: 132, y: 170, width: 242, height: 40))
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = " Введите статус"
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 12
@@ -69,6 +73,7 @@ class ProfileHeaderView: UIView {
         textField.textColor = .black
         return textField
     }()
+    
     
     func statusButtonChanger() -> UIButton {
         showStatusButton
@@ -82,19 +87,52 @@ class ProfileHeaderView: UIView {
         statusTextField
     }
     
-    // сборка всех элементов для вывода на экран
+    
+    
+      //сборка всех элементов для вывода на экран
     func setupProfileHeaderView() {
+        backgroundColor = .lightGray
         addSubview(userImageView)
         addSubview(userNameLabel)
         addSubview(userStatusLabel)
         addSubview(statusTextField)
         addSubview(showStatusButton)
-    }
+        
+        
+        // установка констрейнтов для всех элементов
+        NSLayoutConstraint.activate([
+            
+            userImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            userImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            userImageView.heightAnchor.constraint(equalToConstant: 100),
+            userImageView.widthAnchor.constraint(equalToConstant: 100),
+            
+            userNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
+            userNameLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 16),
+            userNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            userNameLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            userStatusLabel.topAnchor.constraint(equalTo: userNameLabel.topAnchor, constant: 30),
+            userStatusLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 16),
+            userStatusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            userStatusLabel.heightAnchor.constraint(equalToConstant: 20),
+
+            statusTextField.topAnchor.constraint(equalTo: userStatusLabel.topAnchor, constant: 20),
+            statusTextField.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 16),
+            statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            statusTextField.heightAnchor.constraint(equalToConstant: 40),
+
+            showStatusButton.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 16),
+            showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            showStatusButton.heightAnchor.constraint(equalToConstant: 50)
+                ])
+        }
     
-    override init(frame: CGRect) {
-           super.init (frame: .zero)
-           setupProfileHeaderView()
-       }
+    init() {
+        super.init(frame: .zero)
+        setupProfileHeaderView()
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -102,4 +140,4 @@ class ProfileHeaderView: UIView {
     
     
 }
-
+    

@@ -15,11 +15,14 @@ final class LogInViewController: UIViewController {
     override func loadView() {
         super.loadView()
         view = loginView
+        setupLoginButton()
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLoginButton()
+        hideNavigationBar()
+        
     }
     
     // метод добавления действия на кнопку Log In
@@ -58,4 +61,15 @@ final class LogInViewController: UIViewController {
     }
     
     
+}
+
+// расширение для скрытия navbar'a
+extension LogInViewController {
+    func hideNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
+    func showNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 }

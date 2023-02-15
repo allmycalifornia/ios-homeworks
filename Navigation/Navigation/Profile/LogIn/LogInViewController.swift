@@ -59,14 +59,3 @@ final class LogInViewController: UIViewController {
     }
     
 }
-
-// расширение для скрытия navbar'a
-extension LogInViewController {
-    func hideNavigationBar() {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-
-    func showNavigationBar() {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-}

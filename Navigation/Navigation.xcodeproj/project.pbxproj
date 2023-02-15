@@ -18,6 +18,7 @@
 		8E9F686A298E5BBE003520DD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9F6869298E5BBE003520DD /* InfoViewController.swift */; };
 		8EA78567299BAD5900247125 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA78566299BAD5900247125 /* LogInViewController.swift */; };
 		8EB58F762992407500F565DD /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB58F752992407500F565DD /* ProfileHeaderView.swift */; };
+		8EBBFA9F299D67CC00A323FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBBFA9E299D67CC00A323FA /* Extensions.swift */; };
 		8EFAC91A298BEED1003B677D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFAC919298BEED1003B677D /* Post.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		8E9F6869298E5BBE003520DD /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		8EA78566299BAD5900247125 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		8EB58F752992407500F565DD /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		8EBBFA9E299D67CC00A323FA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8EFAC919298BEED1003B677D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 				8E6EC75E298A82F500E96FD3 /* FeedViewController.swift */,
 				8E6EC762298A86EE00E96FD3 /* PostViewController.swift */,
 				8E9F6869298E5BBE003520DD /* InfoViewController.swift */,
+				8EBBFA9E299D67CC00A323FA /* Extensions.swift */,
 				8EFAC919298BEED1003B677D /* Post.swift */,
 				8E0CDA3729890EDB00618444 /* Assets.xcassets */,
 				8E0CDA3929890EDB00618444 /* LaunchScreen.storyboard */,
@@ -180,6 +183,7 @@
 				8E0CDA3129890EDA00618444 /* SceneDelegate.swift in Sources */,
 				8E6EC763298A86EE00E96FD3 /* PostViewController.swift in Sources */,
 				8E4606CE299CF24300A5B234 /* LoginView.swift in Sources */,
+				8EBBFA9F299D67CC00A323FA /* Extensions.swift in Sources */,
 				8EB58F762992407500F565DD /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

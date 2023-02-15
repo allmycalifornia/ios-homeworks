@@ -16,13 +16,11 @@ final class LogInViewController: UIViewController {
         super.loadView()
         view = loginView
         setupLoginButton()
-        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         hideNavigationBar()
-        
     }
     
     // метод добавления действия на кнопку Log In
@@ -59,7 +57,6 @@ final class LogInViewController: UIViewController {
         loginView.scrollView.contentInset = .zero
         loginView.scrollView.verticalScrollIndicatorInsets = .zero
     }
-    
     
 }
 

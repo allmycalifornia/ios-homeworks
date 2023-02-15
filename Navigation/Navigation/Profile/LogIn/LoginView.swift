@@ -130,7 +130,8 @@ final class LoginView: UIView {
             loginButton.topAnchor.constraint(equalTo: textField2.bottomAnchor, constant: 16),
             loginButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            loginButton.heightAnchor.constraint(equalToConstant: 50)
+            loginButton.heightAnchor.constraint(equalToConstant: 50),
+            loginButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
 }
@@ -143,7 +144,7 @@ extension UITextField {
     }
 }
 
-// расширение для ввода текста
+// расширение для скрытия клавиатуры
 extension LoginView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         endEditing(true)

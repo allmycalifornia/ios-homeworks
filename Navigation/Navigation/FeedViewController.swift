@@ -35,7 +35,7 @@ final class FeedViewController: UIViewController {
 
         // верхняя кнопка "Дальше"
         private func makeBarItem() {
-            let barItem = UIBarButtonItem(title: "Дальше", style: .plain, target: self, action: #selector(barItemAction))
+            let barItem = UIBarButtonItem(title: "Профиль", style: .plain, target: self, action: #selector(barItemAction))
             navigationItem.rightBarButtonItem = barItem
         }
         

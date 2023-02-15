@@ -64,7 +64,8 @@ class ProfileHeaderView: UIView {
     private let statusTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = " Введите статус"
+        textField.placeholder = "Введите статус"
+        textField.indent(size: 10)
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1

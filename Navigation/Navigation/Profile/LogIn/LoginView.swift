@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginView: UIView {
+final class LoginView: UIView {
 
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -23,12 +23,12 @@ class LoginView: UIView {
     }()
     
     private let logoImageView: UIImageView = {
-        let logoView = UIImageView()
-        logoView.translatesAutoresizingMaskIntoConstraints = false
-        logoView.image = UIImage(named: "logo")
-        logoView.contentMode = .scaleAspectFill
-        logoView.clipsToBounds = true
-        return logoView
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "logo")
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
     }()
     
     
@@ -67,7 +67,7 @@ class LoginView: UIView {
         return textField
     }()
     
-    private let loginButton: UIButton = {
+    var loginButton: UIButton = {
         var button = UIButton(type: .system)
         button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +89,8 @@ class LoginView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     
     private func layout() {
         addSubview(scrollView)
@@ -142,10 +144,17 @@ extension UITextField {
     }
 }
 
+// расширение для ввода текста
 extension LoginView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         endEditing(true)
         return true
+    }
+}
+
+extension UIView {
+    static var identifier: String {
+        String(describing: self)
     }
 }
 

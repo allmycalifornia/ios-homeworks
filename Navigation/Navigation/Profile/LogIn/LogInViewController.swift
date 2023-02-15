@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+final class LogInViewController: UIViewController {
 
     private let notification = NotificationCenter.default
     private let loginView = LoginView()
@@ -19,6 +19,18 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLoginButton()
+    }
+    
+    // метод добавления действия на кнопку Log In
+    private func setupLoginButton() {
+        loginView.loginButton.addTarget(self, action: #selector(tapLoginAction), for: .touchUpInside)
+    }
+    
+    // метод перехода на страницу профиля
+    @objc private func tapLoginAction() {
+        let profileVC = ProfileViewController()
+        navigationController?.pushViewController(profileVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +55,7 @@ class LogInViewController: UIViewController {
     @objc private func keyboardWillHide() {
         loginView.scrollView.contentInset = .zero
         loginView.scrollView.verticalScrollIndicatorInsets = .zero
-        
     }
+    
+    
 }

@@ -56,9 +56,13 @@ class ProfileHeaderView: UIView {
             button.layer.cornerRadius = 16
             button.layer.shadowColor = UIColor.black.cgColor
             button.layer.shadowOpacity = 0.7
-
+            button.addTarget(self, action: #selector(statusButtonPressed), for: .touchUpInside)
             return button
         }()
+    
+    @objc private func statusButtonPressed() {
+        statusLabelChanger().text = statusTextFieldChanger().text
+    }
     
     // поле для ввода статуса пользователя
     private let statusTextField: UITextField = {

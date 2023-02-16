@@ -17,10 +17,10 @@ struct Posts {
     static func makePost() -> [[Posts]] {
         var post = [[Posts]]()
         var section = [Posts]()
-        section.append(Posts(author: "Лариса Мосенко", image: UIImage(named: "TomHolland")!, description: "Том Холланд вернётся к роли Человека-паука в MCU", likes: Int.random(in: 300...500), views: Int.random(in: 700...1999)))
-        section.append(Posts(author: "Юрий Лущинский", image: UIImage(named: "Dragon")!, description: "«Как приручить дракона» станет полнометражным фильмом", likes: Int.random(in: 300...500), views: Int.random(in: 700...1999)))
-        section.append(Posts(author: "Лариса Мосенко", image: UIImage(named: "Andor")!, description: "Диего Луна и Стеллан Скарсгард засветились на съёмках второго сезона «Андора»", likes: Int.random(in: 300...500), views: Int.random(in: 700...1999)))
-        section.append(Posts(author: "Дина Касимова", image: UIImage(named: "PaulWalker")!, description: "Режиссёр «Форсажа 10» рассказал о возвращении Пола Уокера", likes: Int.random(in: 300...500), views: Int.random(in: 700...1999)))
+        section.append(Posts(author: "Киновселенная Марвел", image: UIImage(named: "TomHolland")!, description: "Том Холланд вернётся к роли Человека-паука в MCU", likes: Int.random(in: 300...500), views: Int.random(in: 700...1999)))
+        section.append(Posts(author: "Disney News", image: UIImage(named: "Dragon")!, description: "«Как приручить дракона» станет полнометражным фильмом", likes: Int.random(in: 300...500), views: Int.random(in: 700...1999)))
+        section.append(Posts(author: "Star Wars", image: UIImage(named: "Andor")!, description: "Диего Луна и Стеллан Скарсгард засветились на съёмках второго сезона «Андора»", likes: Int.random(in: 300...500), views: Int.random(in: 700...1999)))
+        section.append(Posts(author: "Fast&Furious", image: UIImage(named: "PaulWalker")!, description: "Режиссёр «Форсажа 10» рассказал о возвращении Пола Уокера", likes: Int.random(in: 300...500), views: Int.random(in: 700...1999)))
         
 //        for _ in 0...5 {
 //            post.append(section)

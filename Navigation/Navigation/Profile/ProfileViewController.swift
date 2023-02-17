@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DetailDelegate: AnyObject {
+    func changeText(_ text: String, indexPath: IndexPath)
+}
+
 class ProfileViewController: UIViewController {
     
     private let profileHeaderView = ProfileHeaderView()

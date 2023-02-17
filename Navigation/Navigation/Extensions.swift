@@ -84,3 +84,8 @@ extension ProfileViewController: UITableViewDelegate,UITableViewDataSource {
     }
 }
 
+extension UIView {
+    static var identifier: String {
+        String(describing: self)
+    }
+}

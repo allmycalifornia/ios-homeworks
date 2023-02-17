@@ -19,6 +19,7 @@
 		8EA78567299BAD5900247125 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA78566299BAD5900247125 /* LogInViewController.swift */; };
 		8EB58F762992407500F565DD /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB58F752992407500F565DD /* ProfileHeaderView.swift */; };
 		8EBBFA9F299D67CC00A323FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBBFA9E299D67CC00A323FA /* Extensions.swift */; };
+		8ED52208299F67BE00D92B8D /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED52207299F67BE00D92B8D /* CustomCellTableViewCell.swift */; };
 		8EFAC91A298BEED1003B677D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFAC919298BEED1003B677D /* Post.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		8EA78566299BAD5900247125 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		8EB58F752992407500F565DD /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		8EBBFA9E299D67CC00A323FA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8ED52207299F67BE00D92B8D /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
 		8EFAC919298BEED1003B677D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 		8E0CDA2D29890EDA00618444 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				8ED52204299F674800D92B8D /* TableView */,
 				8EB58F7429923FB100F565DD /* Profile */,
 				8E0CDA2E29890EDA00618444 /* AppDelegate.swift */,
 				8E0CDA3029890EDA00618444 /* SceneDelegate.swift */,
@@ -102,6 +105,30 @@
 				8E4606CC299CF0A500A5B234 /* LogIn */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		8ED52204299F674800D92B8D /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				8ED52206299F677400D92B8D /* Cells */,
+				8ED52205299F676400D92B8D /* Headers + Footers */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		8ED52205299F676400D92B8D /* Headers + Footers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Headers + Footers";
+			sourceTree = "<group>";
+		};
+		8ED52206299F677400D92B8D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8ED52207299F67BE00D92B8D /* CustomCellTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +203,7 @@
 			files = (
 				8E6EC761298A830F00E96FD3 /* ProfileViewController.swift in Sources */,
 				8E6EC75F298A82F500E96FD3 /* FeedViewController.swift in Sources */,
+				8ED52208299F67BE00D92B8D /* CustomCellTableViewCell.swift in Sources */,
 				8EA78567299BAD5900247125 /* LogInViewController.swift in Sources */,
 				8E0CDA2F29890EDA00618444 /* AppDelegate.swift in Sources */,
 				8E9F686A298E5BBE003520DD /* InfoViewController.swift in Sources */,

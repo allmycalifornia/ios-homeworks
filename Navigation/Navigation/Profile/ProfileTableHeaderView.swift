@@ -138,11 +138,7 @@ class ProfileTableHeaderView: UIView {
         super.init(frame: frame)
         setupProfileHeaderView()
     }
-    
-//    init() {
-//        super.init(frame: .zero)
-//        setupProfileHeaderView()
-//    }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

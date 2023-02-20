@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileHeaderView: UIView {
+class ProfileTableHeaderView: UIView {
     
         // аватарка пользователя
         private let userImageView: UIImageView = {
@@ -134,10 +134,15 @@ class ProfileHeaderView: UIView {
                 ])
         }
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupProfileHeaderView()
     }
+    
+//    init() {
+//        super.init(frame: .zero)
+//        setupProfileHeaderView()
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

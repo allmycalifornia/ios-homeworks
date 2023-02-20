@@ -9,7 +9,7 @@ import UIKit
 
 final class FeedViewController: UIViewController {
     
-    var post = Post(title: "Мой пост")
+    //var post = Post(title: "Мой пост")
     
         private let viewPostButton: UIButton = {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
@@ -52,7 +52,7 @@ final class FeedViewController: UIViewController {
         // метод действия кнопки
         @objc private func tapAction() {
             let postVC = PostViewController()
-            postVC.titlePost = post.title
+            //postVC.titlePost = post.title
             //present(postVC, animated: true)
             navigationController?.pushViewController(postVC, animated: true)
         }

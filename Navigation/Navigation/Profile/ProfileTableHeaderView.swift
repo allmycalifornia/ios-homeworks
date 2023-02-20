@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileHeaderView: UIView {
+class ProfileTableHeaderView: UIView {
     
         // аватарка пользователя
         private let userImageView: UIImageView = {
@@ -56,9 +56,13 @@ class ProfileHeaderView: UIView {
             button.layer.cornerRadius = 16
             button.layer.shadowColor = UIColor.black.cgColor
             button.layer.shadowOpacity = 0.7
-
+            button.addTarget(self, action: #selector(statusButtonPressed), for: .touchUpInside)
             return button
         }()
+    
+    @objc private func statusButtonPressed() {
+        statusLabelChanger().text = statusTextFieldChanger().text
+    }
     
     // поле для ввода статуса пользователя
     private let statusTextField: UITextField = {
@@ -75,7 +79,7 @@ class ProfileHeaderView: UIView {
         return textField
     }()
     
-    
+    // методы замены текста в строке статуса
     func statusButtonChanger() -> UIButton {
         showStatusButton
     }
@@ -83,7 +87,7 @@ class ProfileHeaderView: UIView {
     func statusLabelChanger() -> UILabel {
         userStatusLabel
     }
-    
+
     func statusTextFieldChanger() -> UITextField {
         statusTextField
     }
@@ -130,10 +134,11 @@ class ProfileHeaderView: UIView {
                 ])
         }
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupProfileHeaderView()
     }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

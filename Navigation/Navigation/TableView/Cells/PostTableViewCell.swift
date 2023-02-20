@@ -76,7 +76,7 @@ class PostTableViewCell: UITableViewCell {
     
     private func layout() {
         [authorText, postImageView, descriptionText, likesText, viewsText].forEach { contentView.addSubview($0) }
-        contentView.backgroundColor = .systemGray5
+        //contentView.backgroundColor = .systemGray5
         contentView.layer.borderWidth = 0
         let inset: CGFloat = 16
         

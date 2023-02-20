@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomCellTableViewCell: UITableViewCell {
+class PostTableViewCell: UITableViewCell {
 
     private let contentWhiteView: UIView = {
         let view = UIView()

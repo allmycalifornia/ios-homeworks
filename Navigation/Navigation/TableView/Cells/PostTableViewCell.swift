@@ -34,7 +34,7 @@ class PostTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textAlignment = .justified
-        label.textColor = .black
+        label.textColor = .systemGray
         return label
     }()
 
@@ -70,7 +70,7 @@ class PostTableViewCell: UITableViewCell {
         postImageView.image = post.image
         descriptionText.text = post.description
         likesText.text = "Likes: \(post.likes)"
-        viewsText.text = "Viewa: \(post.views)"
+        viewsText.text = "Views: \(post.views)"
     }
     
     private func layout() {

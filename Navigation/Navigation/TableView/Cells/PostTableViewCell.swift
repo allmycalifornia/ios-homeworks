@@ -86,31 +86,23 @@ class PostTableViewCell: UITableViewCell {
             authorText.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset),
             authorText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
             authorText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
-        ])
-        
-        NSLayoutConstraint.activate([
+       
             postImageView.topAnchor.constraint(equalTo: authorText.bottomAnchor, constant: inset),
             postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -0.5),
             postImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0.5),
             postImageView.heightAnchor.constraint(equalToConstant: screenWidth),
-        ])
-        
-        NSLayoutConstraint.activate([
+   
             descriptionText.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: inset),
             descriptionText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
             descriptionText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
-        ])
-        
-        NSLayoutConstraint.activate([
+   
             likesText.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: inset),
             likesText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
             likesText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
-        ])
-        
-        NSLayoutConstraint.activate([
+   
             viewsText.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: inset),
             viewsText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
-            viewsText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
+            viewsText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset)
         ])
     }
 

@@ -79,7 +79,7 @@ class ProfileTableHeaderView: UIView {
         return textField
     }()
     
-    
+    // методы замены текста в строке статуса
     func statusButtonChanger() -> UIButton {
         showStatusButton
     }
@@ -87,7 +87,7 @@ class ProfileTableHeaderView: UIView {
     func statusLabelChanger() -> UILabel {
         userStatusLabel
     }
-    
+
     func statusTextFieldChanger() -> UITextField {
         statusTextField
     }

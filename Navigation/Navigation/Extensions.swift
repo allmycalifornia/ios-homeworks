@@ -49,12 +49,13 @@ extension UITextField {
 }
 
 // расширение для скрытия клавиатуры
-extension LoginView: UITextFieldDelegate {
+extension LogInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        endEditing(true)
+        view.endEditing(true)
         return true
     }
 }
+
 
 // расширение для скрытия navbar'a
 extension LogInViewController {

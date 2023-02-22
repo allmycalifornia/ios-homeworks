@@ -21,15 +21,13 @@ class PhotosTableViewCell: UITableViewCell {
     private let goToGalleryButton: UIButton = {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .white
-        button.backgroundImage(for: .normal)
-        //button.largeContentImage = UIImage(systemName: "arrow.right")
-        button.addTarget(PhotosTableViewCell.self, action: #selector(buttonPressed), for: .touchUpInside)
+        button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         return button
     }()
     
     @objc private func buttonPressed() {
-        //let photosVC = PhotosViewController()
+        let photosVC = PhotosViewController()
         //navigationController?.pushViewController(photosVC, animated: true)
     }
     
@@ -96,9 +94,10 @@ class PhotosTableViewCell: UITableViewCell {
             photosTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
             photosTextLabel.trailingAnchor.constraint(equalTo: contentView.centerXAnchor),
             
-            goToGalleryButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset),
-            goToGalleryButton.leadingAnchor.constraint(equalTo: contentView.centerXAnchor),
-            goToGalleryButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: inset),
+            //goToGalleryButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset),
+            //goToGalleryButton.leadingAnchor.constraint(equalTo: contentView.centerXAnchor),
+            goToGalleryButton.centerYAnchor.constraint(equalTo: photosTextLabel.centerYAnchor),
+            goToGalleryButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
             
             imageView1.topAnchor.constraint(equalTo: photosTextLabel.bottomAnchor, constant: inset),
             imageView1.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),

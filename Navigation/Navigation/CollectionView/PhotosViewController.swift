@@ -28,6 +28,8 @@ final class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
+        showNavigationBar()
+        navigationItem.title = "Photos Gallery"
         setupCollectionView()
     }
     

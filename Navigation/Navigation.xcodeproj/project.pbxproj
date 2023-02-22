@@ -16,6 +16,8 @@
 		8E6EC763298A86EE00E96FD3 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6EC762298A86EE00E96FD3 /* PostViewController.swift */; };
 		8E769AEE29A5FB8200E678F8 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E769AED29A5FB8200E678F8 /* PhotosTableViewCell.swift */; };
 		8E769AF129A60AAF00E678F8 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E769AF029A60AAF00E678F8 /* PhotosViewController.swift */; };
+		8E769AF429A6201100E678F8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E769AF329A6201100E678F8 /* CollectionViewCell.swift */; };
+		8E769AF629A62B4300E678F8 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E769AF529A62B4300E678F8 /* Gallery.swift */; };
 		8E9F686A298E5BBE003520DD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9F6869298E5BBE003520DD /* InfoViewController.swift */; };
 		8EA78567299BAD5900247125 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA78566299BAD5900247125 /* LogInViewController.swift */; };
 		8EB58F762992407500F565DD /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB58F752992407500F565DD /* ProfileTableHeaderView.swift */; };
@@ -36,6 +38,8 @@
 		8E6EC762298A86EE00E96FD3 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8E769AED29A5FB8200E678F8 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		8E769AF029A60AAF00E678F8 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		8E769AF329A6201100E678F8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		8E769AF529A62B4300E678F8 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
 		8E9F6869298E5BBE003520DD /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		8EA78566299BAD5900247125 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		8EB58F752992407500F565DD /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
@@ -102,9 +106,19 @@
 		8E769AEF29A60A7700E678F8 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				8E769AF229A61FD700E678F8 /* Cells */,
 				8E769AF029A60AAF00E678F8 /* PhotosViewController.swift */,
+				8E769AF529A62B4300E678F8 /* Gallery.swift */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		8E769AF229A61FD700E678F8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8E769AF329A6201100E678F8 /* CollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		8EB58F7429923FB100F565DD /* Profile */ = {
@@ -205,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E769AEE29A5FB8200E678F8 /* PhotosTableViewCell.swift in Sources */,
+				8E769AF629A62B4300E678F8 /* Gallery.swift in Sources */,
 				8E769AF129A60AAF00E678F8 /* PhotosViewController.swift in Sources */,
 				8E6EC761298A830F00E96FD3 /* ProfileViewController.swift in Sources */,
 				8E6EC75F298A82F500E96FD3 /* FeedViewController.swift in Sources */,
@@ -214,6 +229,7 @@
 				8E9F686A298E5BBE003520DD /* InfoViewController.swift in Sources */,
 				8EFAC91A298BEED1003B677D /* Post.swift in Sources */,
 				8E0CDA3129890EDA00618444 /* SceneDelegate.swift in Sources */,
+				8E769AF429A6201100E678F8 /* CollectionViewCell.swift in Sources */,
 				8E6EC763298A86EE00E96FD3 /* PostViewController.swift in Sources */,
 				8EBBFA9F299D67CC00A323FA /* Extensions.swift in Sources */,
 				8EB58F762992407500F565DD /* ProfileTableHeaderView.swift in Sources */,

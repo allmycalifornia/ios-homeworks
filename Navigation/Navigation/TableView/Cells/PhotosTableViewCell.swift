@@ -29,7 +29,7 @@ class PhotosTableViewCell: UITableViewCell {
     }()
     
     @objc private func buttonPressed() {
-        let photosVC = PhotosViewController()
+        _ = PhotosViewController()
         //photosVC.title = "Photos Galley"
         //navigationController?.pushViewController(photosVC, animated: true)
     }
@@ -100,7 +100,7 @@ class PhotosTableViewCell: UITableViewCell {
         let inset: CGFloat = 12
         let insetImage: CGFloat = 8
         
-        let screenWidth = UIScreen.main.bounds.width
+        //let screenWidth = UIScreen.main.bounds.width
         
         NSLayoutConstraint.activate([
             photosTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset),

@@ -165,8 +165,11 @@ final class LogInViewController: UIViewController {
     
     // метод перехода на страницу профиля
     @objc private func tapLoginAction() {
-        let profileVC = ProfileViewController()
-        navigationController?.pushViewController(profileVC, animated: true)
+//        let profileVC = ProfileViewController()
+//        navigationController?.pushViewController(profileVC, animated: true)
+        
+        let photosVC = PhotosViewController()
+        navigationController?.pushViewController(photosVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

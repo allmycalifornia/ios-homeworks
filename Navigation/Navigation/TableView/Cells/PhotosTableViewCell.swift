@@ -23,7 +23,7 @@ class PhotosTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .white
         button.backgroundImage(for: .normal)
-        button.largeContentImage = UIImage(systemName: "arrow.right")
+        //button.largeContentImage = UIImage(systemName: "arrow.right")
         button.addTarget(PhotosTableViewCell.self, action: #selector(buttonPressed), for: .touchUpInside)
         return button
     }()

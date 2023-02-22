@@ -62,18 +62,10 @@ extension LogInViewController {
     func hideNavigationBar() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
-
-    func showNavigationBar() {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
 }
 
-// расширение для показа и скрытия navbar'a
+// расширение для показа navbar'a
 extension PhotosViewController {
-    func hideNavigationBar() {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-
     func showNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -96,10 +88,10 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
+        let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
         cell.setupCell(post: postModel[indexPath.row])
-//        if indexPath.item == 0 {
-//            cell = PhotosTableViewCell()
+//        if indexPath.row == 0 {
+//
 //        }
             
         return cell

@@ -21,16 +21,15 @@ class PhotosTableViewCell: UITableViewCell {
     private let goToGalleryButton: UIButton = {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        //button.imageView = UIImage(systemName: "arrow.right")
-        button.setTitle("->", for: .normal)
         button.backgroundColor = .white
+        button.backgroundImage(for: .normal)
+        button.largeContentImage = UIImage(systemName: "arrow.right")
         button.addTarget(PhotosTableViewCell.self, action: #selector(buttonPressed), for: .touchUpInside)
         return button
     }()
     
     @objc private func buttonPressed() {
-        _ = PhotosViewController()
-        //photosVC.title = "Photos Galley"
+        //let photosVC = PhotosViewController()
         //navigationController?.pushViewController(photosVC, animated: true)
     }
     
@@ -86,21 +85,11 @@ class PhotosTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //    func setupCell(post: Post) {
-    //        authorText.text = post.author
-    //        postImageView.image = post.image
-    //        descriptionText.text = post.description
-    //        likesText.text = "Likes: \(post.likes)"
-    //        viewsText.text = "Views: \(post.views)"
-    //    }
-    
     private func layout() {
         [photosTextLabel, goToGalleryButton, imageView1, imageView2, imageView3, imageView4].forEach { contentView.addSubview($0) }
         contentView.layer.borderWidth = 0
         let inset: CGFloat = 12
         let insetImage: CGFloat = 8
-        
-        //let screenWidth = UIScreen.main.bounds.width
         
         NSLayoutConstraint.activate([
             photosTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset),

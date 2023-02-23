@@ -13,7 +13,7 @@ class ProfileTableHeaderView: UIView {
         private let userImageView: UIImageView = {
             let imageView = UIImageView()
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.image = UIImage(named: "avatar")
+            imageView.image = UIImage(named: "Pedro")
             imageView.contentMode = .scaleAspectFill
             imageView.backgroundColor = .black
             imageView.clipsToBounds = true
@@ -28,7 +28,7 @@ class ProfileTableHeaderView: UIView {
         private let userNameLabel: UILabel = {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "Rumi Hiiragi"
+            label.text = "Pedro Pascal"
             label.textColor = .black
             label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
@@ -38,7 +38,7 @@ class ProfileTableHeaderView: UIView {
         private lazy var userStatusLabel: UILabel = {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "Waiting for something..."
+            label.text = "Таков путь"
             label.textColor = .darkGray
             label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
             return label
@@ -68,7 +68,7 @@ class ProfileTableHeaderView: UIView {
     private let statusTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Введите статус"
+        textField.placeholder = "This is the way"
         textField.indent(size: 10)
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 12

@@ -62,11 +62,15 @@ extension LogInViewController {
     func hideNavigationBar() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
+}
 
+// расширение для показа navbar'a
+extension PhotosViewController {
     func showNavigationBar() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
+
 
 
 extension UIView {
@@ -76,35 +80,39 @@ extension UIView {
 }
 
 
-// расширение Datasource
-extension ProfileViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.postModel.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
-        cell.setupCell(post: postModel[indexPath.row])
-        return cell
-    }
-}
-
-// расширение Delegate
-extension ProfileViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            postModel.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-}
+//// расширение Datasource
+//extension ProfileViewController: UITableViewDataSource {
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return self.postModel.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
+//        cell.setupCell(post: postModel[indexPath.row])
+////        if indexPath.row == 0 {
+////
+////        }
+//
+//        return cell
+//    }
+//}
+//
+//// расширение Delegate
+//extension ProfileViewController: UITableViewDelegate {
+//
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
+//
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            postModel.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
+//}

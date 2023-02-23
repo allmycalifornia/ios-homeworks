@@ -44,15 +44,6 @@ final class ProfileViewController: UIViewController {
         ])
     }
     
-    
-//    func pushPhotosViewController() {
-//        let photosVC = PhotosViewController()
-//        photosVC.title = "Photo Gallery"
-//        photosVC.parentNavigationController = self.navigationController
-//        navigationController?.navigationBar.isHidden = false
-//        navigationController?.pushViewController(photosVC, animated: true)
-//    }
-    
 }
 
 
@@ -70,7 +61,7 @@ extension ProfileViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell: PhotosTableViewCell = tableView.dequeueReusableCell(withIdentifier: PhotosTableViewCell.identifier, for: indexPath) as! PhotosTableViewCell
-            //cell.didTapButton = pushPhotosViewController
+            cell.goToGalleryButton.addTarget(self, action: #selector(setupGoToGalleryButton), for: .touchUpInside)
             return cell
         
         default:
@@ -79,8 +70,15 @@ extension ProfileViewController: UITableViewDataSource {
                 cell.setupCell(post: post)
                 return cell
             } else { return UITableViewCell() }
+            
         }
     }
+    
+    @objc private func setupGoToGalleryButton() {
+            let photosVC = PhotosViewController()
+            navigationController?.pushViewController(photosVC, animated: true)
+        }
+   
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension

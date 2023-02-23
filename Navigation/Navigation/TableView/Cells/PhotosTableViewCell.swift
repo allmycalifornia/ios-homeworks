@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotosTableViewCell: UITableViewCell {
+final class PhotosTableViewCell: UITableViewCell {
     
     private let photosTextLabel: UILabel = {
         let label = UILabel()
@@ -18,18 +18,18 @@ class PhotosTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let goToGalleryButton: UIButton = {
+    let goToGalleryButton: UIButton = {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
-        //button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapGoToGalleryButton), for: .touchUpInside)
         return button
     }()
     
-//    @objc private func buttonPressed() {
-//        //let photosVC = PhotosViewController()
-//        //navigationController?.pushViewController(photosVC, animated: true)
-//    }
+    @objc func tapGoToGalleryButton() {
+        let photosVC = PhotosViewController()
+        navigationController?.pushViewController(photosVC, animated: true)
+    }
     
     private let imageView1: UIImageView = {
         let imageView = UIImageView()

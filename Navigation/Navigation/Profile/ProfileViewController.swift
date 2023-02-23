@@ -44,13 +44,14 @@ final class ProfileViewController: UIViewController {
         ])
     }
     
-    func pushPhotosViewController() {
-        let photosVC = PhotosViewController()
-        photosVC.title = "Photo Gallery"
-        //photosVC.parentNavigationController = self.navigationController
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.pushViewController(photosVC, animated: true)
-    }
+    
+//    func pushPhotosViewController() {
+//        let photosVC = PhotosViewController()
+//        photosVC.title = "Photo Gallery"
+//        photosVC.parentNavigationController = self.navigationController
+//        navigationController?.navigationBar.isHidden = false
+//        navigationController?.pushViewController(photosVC, animated: true)
+//    }
     
 }
 

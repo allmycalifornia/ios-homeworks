@@ -22,19 +22,19 @@ class PhotosTableViewCell: UITableViewCell {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        //button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         return button
     }()
     
-    @objc private func buttonPressed() {
-        let photosVC = PhotosViewController()
-        //navigationController?.pushViewController(photosVC, animated: true)
-    }
+//    @objc private func buttonPressed() {
+//        //let photosVC = PhotosViewController()
+//        //navigationController?.pushViewController(photosVC, animated: true)
+//    }
     
     private let imageView1: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 6
         imageView.image = UIImage(named: "gallery01")
@@ -44,7 +44,7 @@ class PhotosTableViewCell: UITableViewCell {
     private let imageView2: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 6
         imageView.image = UIImage(named: "gallery02")
@@ -54,7 +54,7 @@ class PhotosTableViewCell: UITableViewCell {
     private let imageView3: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 6
         imageView.image = UIImage(named: "gallery03")
@@ -64,7 +64,7 @@ class PhotosTableViewCell: UITableViewCell {
     private let imageView4: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 6
         imageView.image = UIImage(named: "gallery04")
@@ -88,37 +88,41 @@ class PhotosTableViewCell: UITableViewCell {
         contentView.layer.borderWidth = 0
         let inset: CGFloat = 12
         let insetImage: CGFloat = 8
+        let screenWidth = UIScreen.main.bounds.width
+        let imageWidth = (screenWidth - 48) / 4
+        let imageHeight = imageWidth / 4 * 3    // на макете не прописано, но предположим, что соотношение сторон фото 4:3
         
         NSLayoutConstraint.activate([
             photosTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset),
             photosTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
             photosTextLabel.trailingAnchor.constraint(equalTo: contentView.centerXAnchor),
             
-            //goToGalleryButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset),
-            //goToGalleryButton.leadingAnchor.constraint(equalTo: contentView.centerXAnchor),
             goToGalleryButton.centerYAnchor.constraint(equalTo: photosTextLabel.centerYAnchor),
             goToGalleryButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
-            
+
             imageView1.topAnchor.constraint(equalTo: photosTextLabel.bottomAnchor, constant: inset),
             imageView1.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
-            imageView1.trailingAnchor.constraint(equalTo: imageView2.trailingAnchor, constant: -insetImage),
-            imageView1.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: inset),
-            
-            
+            imageView1.widthAnchor.constraint(equalToConstant: imageWidth),
+            imageView1.heightAnchor.constraint(equalToConstant: imageHeight),
+            imageView1.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
+
             imageView2.topAnchor.constraint(equalTo: photosTextLabel.bottomAnchor, constant: inset),
-            imageView2.leadingAnchor.constraint(equalTo: imageView1.leadingAnchor, constant: insetImage),
-            imageView2.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -insetImage / 2),
-            imageView2.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: inset),
-            
+            imageView2.leadingAnchor.constraint(equalTo: imageView1.trailingAnchor, constant: insetImage),
+            imageView2.widthAnchor.constraint(equalToConstant: imageWidth),
+            imageView2.heightAnchor.constraint(equalToConstant: imageHeight),
+            imageView2.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
+
             imageView3.topAnchor.constraint(equalTo: photosTextLabel.bottomAnchor, constant: inset),
-            imageView3.leadingAnchor.constraint(equalTo: centerXAnchor, constant: insetImage / 2),
-            imageView3.trailingAnchor.constraint(equalTo: imageView4.leadingAnchor, constant: insetImage),
-            imageView3.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: inset),
-            
+            imageView3.leadingAnchor.constraint(equalTo: imageView2.trailingAnchor, constant: insetImage),
+            imageView3.widthAnchor.constraint(equalToConstant: imageWidth),
+            imageView3.heightAnchor.constraint(equalToConstant: imageHeight),
+            imageView3.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
+
             imageView4.topAnchor.constraint(equalTo: photosTextLabel.bottomAnchor, constant: inset),
-            imageView4.leadingAnchor.constraint(equalTo: imageView3.leadingAnchor, constant: insetImage),
-            imageView4.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: inset),
-            imageView4.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: inset),
+            imageView4.widthAnchor.constraint(equalToConstant: imageWidth),
+            imageView4.heightAnchor.constraint(equalToConstant: imageHeight),
+            imageView4.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
+            imageView4.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset)
         ])
     }
 }

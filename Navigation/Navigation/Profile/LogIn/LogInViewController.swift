@@ -94,17 +94,6 @@ final class LogInViewController: UIViewController {
             }
         }
     
-//    init(frame: CGRect) {
-//        super.init(frame: frame)
-//        view.backgroundColor = .white
-//        layout()
-//        setLoginButtonStates()
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
     
     private func layout() {
         view.addSubview(scrollView)

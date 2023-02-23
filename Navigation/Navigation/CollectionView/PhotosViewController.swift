@@ -9,10 +9,6 @@ import UIKit
 
 final class PhotosViewController: UIViewController {
     
-//    private var model: [Gallery] {
-//        return Gallery.makeGallery()
-//    }
-    
     let source: [Gallery] = Source.randomPhotos(with: 20)
     
     private let collectionView: UICollectionView = {

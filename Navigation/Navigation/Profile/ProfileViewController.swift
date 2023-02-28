@@ -9,6 +9,8 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
+    private let notification = NotificationCenter.default
+    
     private var model:[[Any]]  = [["Photos"], Post.makePost()]
     
     private lazy var tableView: UITableView = {
@@ -43,6 +45,7 @@ final class ProfileViewController: UIViewController {
             
         ])
     }
+    
     
 }
 

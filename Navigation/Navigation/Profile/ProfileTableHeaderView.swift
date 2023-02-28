@@ -7,12 +7,13 @@
 
 import UIKit
 
-class ProfileTableHeaderView: UIView {
+class ProfileTableHeaderView: UIView {  // , UITextFieldDelegate
     
         // аватарка пользователя
         private let userImageView: UIImageView = {
             let imageView = UIImageView()
             imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.isUserInteractionEnabled = true
             imageView.image = UIImage(named: "Pedro")
             imageView.contentMode = .scaleAspectFill
             imageView.backgroundColor = .black
@@ -65,11 +66,12 @@ class ProfileTableHeaderView: UIView {
     }
     
     // поле для ввода статуса пользователя
-    private let statusTextField: UITextField = {
+    private lazy var statusTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "This is the way"
         textField.indent(size: 10)
+        textField.delegate = self
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1

@@ -56,6 +56,14 @@ extension LogInViewController: UITextFieldDelegate {
     }
 }
 
+// расширение для скрытия клавиатуры
+extension ProfileTableHeaderView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        return true
+    }
+}
+
 
 // расширение для скрытия navbar'a
 extension LogInViewController {

@@ -10,7 +10,6 @@ import UIKit
 final class LogInViewController: UIViewController {
 
     private let notification = NotificationCenter.default
-    //private let loginView = LoginView()
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()

@@ -62,6 +62,9 @@
 		8E0CDA2229890EDA00618444 = {
 			isa = PBXGroup;
 			children = (
+				8EEE170029BB5B5F00ACBE84 /* Extensions */,
+				8EEE16FD29BB5B3A00ACBE84 /* Assets */,
+				8EEE16FC29BB5B1B00ACBE84 /* Configure */,
 				8E0CDA2D29890EDA00618444 /* Navigation */,
 				8E0CDA2C29890EDA00618444 /* Products */,
 			);
@@ -78,18 +81,12 @@
 		8E0CDA2D29890EDA00618444 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				8EEE170129BB5B9000ACBE84 /* Info */,
+				8EEE16FF29BB5B5300ACBE84 /* Posts */,
+				8EEE16FE29BB5B4300ACBE84 /* Feed */,
 				8E769AEF29A60A7700E678F8 /* CollectionView */,
 				8ED52204299F674800D92B8D /* TableView */,
 				8EB58F7429923FB100F565DD /* Profile */,
-				8E0CDA2E29890EDA00618444 /* AppDelegate.swift */,
-				8E0CDA3029890EDA00618444 /* SceneDelegate.swift */,
-				8E6EC75E298A82F500E96FD3 /* FeedViewController.swift */,
-				8E6EC762298A86EE00E96FD3 /* PostViewController.swift */,
-				8E9F6869298E5BBE003520DD /* InfoViewController.swift */,
-				8EBBFA9E299D67CC00A323FA /* Extensions.swift */,
-				8EFAC919298BEED1003B677D /* Post.swift */,
-				8E0CDA3729890EDB00618444 /* Assets.xcassets */,
-				8E0CDA3929890EDB00618444 /* LaunchScreen.storyboard */,
 				8E0CDA3C29890EDB00618444 /* Info.plist */,
 			);
 			path = Navigation;
@@ -146,6 +143,57 @@
 				8E769AED29A5FB8200E678F8 /* PhotosTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		8EEE16FC29BB5B1B00ACBE84 /* Configure */ = {
+			isa = PBXGroup;
+			children = (
+				8E0CDA3929890EDB00618444 /* LaunchScreen.storyboard */,
+				8E0CDA3029890EDA00618444 /* SceneDelegate.swift */,
+				8E0CDA2E29890EDA00618444 /* AppDelegate.swift */,
+			);
+			path = Configure;
+			sourceTree = "<group>";
+		};
+		8EEE16FD29BB5B3A00ACBE84 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8E0CDA3729890EDB00618444 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		8EEE16FE29BB5B4300ACBE84 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				8E6EC75E298A82F500E96FD3 /* FeedViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		8EEE16FF29BB5B5300ACBE84 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				8EFAC919298BEED1003B677D /* Post.swift */,
+				8E6EC762298A86EE00E96FD3 /* PostViewController.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		8EEE170029BB5B5F00ACBE84 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8EBBFA9E299D67CC00A323FA /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8EEE170129BB5B9000ACBE84 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				8E9F6869298E5BBE003520DD /* InfoViewController.swift */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

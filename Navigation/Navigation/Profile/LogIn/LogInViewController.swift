@@ -93,6 +93,29 @@ final class LogInViewController: UIViewController {
             }
         }
     
+    // Функция для показа анимации подергивания первого поля
+    private func shakeAnimation() {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: textField1.center.x - 10, y: textField1.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: textField1.center.x + 10, y: textField1.center.y))
+
+        textField1.layer.add(animation, forKey: "position")
+    }
+    
+    // Функция для показа анимации подергивания второго поля
+    private func shakeAnimation2() {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: textField2.center.x - 10, y: textField2.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: textField2.center.x + 10, y: textField2.center.y))
+
+        textField2.layer.add(animation, forKey: "position")
+    }
     
     private func layout() {
         view.addSubview(scrollView)
@@ -141,9 +164,10 @@ final class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideNavigationBar()
-        layout()
         setLoginButtonStates()
         setupLoginButton()
+        layout()
+    
     }
     
     // метод добавления действия на кнопку Log In
@@ -154,8 +178,16 @@ final class LogInViewController: UIViewController {
     // метод перехода на страницу профиля
     @objc private func tapLoginAction() {
         let profileVC = ProfileViewController()
-        navigationController?.pushViewController(profileVC, animated: true)
+        if textField1.text!.isEmpty {
+            shakeAnimation()
+        } else if textField2.text!.isEmpty {
+            shakeAnimation2()
+        } else {
+            navigationController?.pushViewController(profileVC, animated: true)
+            //return true
+        }
     }
+        
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

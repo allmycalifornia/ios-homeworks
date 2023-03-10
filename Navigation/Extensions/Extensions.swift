@@ -49,17 +49,17 @@ extension UITextField {
 }
 
 // расширение для скрытия клавиатуры
-extension LogInViewController: UITextFieldDelegate {
+extension ProfileTableHeaderView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
+        endEditing(true)
         return true
     }
 }
 
 // расширение для скрытия клавиатуры
-extension ProfileTableHeaderView: UITextFieldDelegate {
+extension LogInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        endEditing(true)
+        view.endEditing(true)
         return true
     }
 }

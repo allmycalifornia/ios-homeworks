@@ -53,8 +53,6 @@ class PostTableViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.layer.borderWidth = 0.5
-        imageView.layer.borderColor = UIColor.white.cgColor
         imageView.image = UIImage(systemName: "heart.fill")
         imageView.tintColor = .red
         return imageView
@@ -74,8 +72,6 @@ class PostTableViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.layer.borderWidth = 0.5
-        imageView.layer.borderColor = UIColor.white.cgColor
         imageView.image = UIImage(systemName: "eye.fill")
         imageView.tintColor = .darkGray
         return imageView

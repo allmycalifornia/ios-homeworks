@@ -79,6 +79,12 @@ extension PhotosViewController {
     }
 }
 
+// расширение для скрытия navbar'a
+extension FeedViewController {
+    func hideNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+}
 
 
 extension UIView {

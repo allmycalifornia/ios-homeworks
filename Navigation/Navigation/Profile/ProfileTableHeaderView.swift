@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileTableHeaderView: UIView {  // , UITextFieldDelegate
+class ProfileTableHeaderView: UIView {
     
         // аватарка пользователя
         private let userImageView: UIImageView = {

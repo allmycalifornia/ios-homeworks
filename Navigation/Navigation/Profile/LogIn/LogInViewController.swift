@@ -11,6 +11,10 @@ final class LogInViewController: UIViewController {
 
     private let notification = NotificationCenter.default
     
+    var email: String = "admin@admin.com"
+    var password: String = "Admin123"
+    
+    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,7 +38,7 @@ final class LogInViewController: UIViewController {
     }()
     
     
-    private lazy var textField1: UITextField = {
+    private lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.indent(size: 10)
@@ -52,7 +56,7 @@ final class LogInViewController: UIViewController {
         return textField
     }()
     
-    private lazy var textField2: UITextField = {
+    private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.indent(size: 10)
@@ -68,6 +72,17 @@ final class LogInViewController: UIViewController {
         textField.backgroundColor = .systemGray6
         textField.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         return textField
+    }()
+    
+    private let passwordLenghtCheckLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 10, weight: .light)
+        label.textColor = .red
+        label.text = "Длина пароля не может быть меньше 8 символов"
+        label.isHidden = true
+        return label
     }()
     
     var loginButton: UIButton = {
@@ -99,10 +114,10 @@ final class LogInViewController: UIViewController {
         animation.duration = 0.07
         animation.repeatCount = 4
         animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: textField1.center.x - 10, y: textField1.center.y))
-        animation.toValue = NSValue(cgPoint: CGPoint(x: textField1.center.x + 10, y: textField1.center.y))
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: emailTextField.center.x - 10, y: emailTextField.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: emailTextField.center.x + 10, y: emailTextField.center.y))
 
-        textField1.layer.add(animation, forKey: "position")
+        emailTextField.layer.add(animation, forKey: "position")
     }
     
     // Функция для показа анимации подергивания второго поля
@@ -111,18 +126,19 @@ final class LogInViewController: UIViewController {
         animation.duration = 0.07
         animation.repeatCount = 4
         animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: textField2.center.x - 10, y: textField2.center.y))
-        animation.toValue = NSValue(cgPoint: CGPoint(x: textField2.center.x + 10, y: textField2.center.y))
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: passwordTextField.center.x - 10, y: passwordTextField.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: passwordTextField.center.x + 10, y: passwordTextField.center.y))
 
-        textField2.layer.add(animation, forKey: "position")
+        passwordTextField.layer.add(animation, forKey: "position")
     }
     
     private func layout() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(logoImageView)
-        contentView.addSubview(textField1)
-        contentView.addSubview(textField2)
+        contentView.addSubview(emailTextField)
+        contentView.addSubview(passwordTextField)
+        contentView.addSubview(passwordLenghtCheckLabel)
         contentView.addSubview(loginButton)
         
         
@@ -143,17 +159,20 @@ final class LogInViewController: UIViewController {
             logoImageView.heightAnchor.constraint(equalToConstant: 100),
             logoImageView.widthAnchor.constraint(equalToConstant: 100),
             
-            textField1.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 120),
-            textField1.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            textField1.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            textField1.heightAnchor.constraint(equalToConstant: 50),
+            emailTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 120),
+            emailTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            emailTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            emailTextField.heightAnchor.constraint(equalToConstant: 50),
             
-            textField2.topAnchor.constraint(equalTo: textField1.bottomAnchor),
-            textField2.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            textField2.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            textField2.heightAnchor.constraint(equalToConstant: 50),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor),
+            passwordTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            passwordTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
             
-            loginButton.topAnchor.constraint(equalTo: textField2.bottomAnchor, constant: 16),
+            passwordLenghtCheckLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 2),
+            passwordLenghtCheckLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16),
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
@@ -167,7 +186,6 @@ final class LogInViewController: UIViewController {
         setLoginButtonStates()
         setupLoginButton()
         layout()
-    
     }
     
     // метод добавления действия на кнопку Log In
@@ -175,16 +193,32 @@ final class LogInViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(tapLoginAction), for: .touchUpInside)
     }
     
-    // метод перехода на страницу профиля
+    // метод перехода на страницу профиля с проверкой логина и пароля
     @objc private func tapLoginAction() {
         let profileVC = ProfileViewController()
-        if textField1.text!.isEmpty {
+        if emailTextField.text!.isEmpty {
+            passwordLenghtCheckLabel.isHidden = false
+            passwordLenghtCheckLabel.text = "Введите ваш email или телефон"
             shakeAnimation()
-        } else if textField2.text!.isEmpty {
+        } else if passwordTextField.text!.isEmpty {
+            passwordLenghtCheckLabel.isHidden = false
+            passwordLenghtCheckLabel.text = "Пароль не может быть пустым"
             shakeAnimation2()
-        } else {
+        } else if emailTextField.text! != email {
+            shakeAnimation()
+        } else if passwordTextField.text!.count < 8 && emailTextField.text! == email {
+            passwordLenghtCheckLabel.isHidden = false
+            passwordLenghtCheckLabel.text = "Длина пароля должна быть не менее 8 символов"
+            shakeAnimation2()
+        } else if passwordTextField.text! != password && emailTextField.text! == email {
+            passwordLenghtCheckLabel.text = "Пароль неверный"
+            passwordTextField.text = ""
+            shakeAnimation2()
+        } else if emailTextField.text! == email && passwordTextField.text! == password {
+            passwordLenghtCheckLabel.isHidden = true
             navigationController?.pushViewController(profileVC, animated: true)
-            //return true
+        } else {
+            ()
         }
     }
         

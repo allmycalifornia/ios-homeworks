@@ -193,6 +193,18 @@ final class LogInViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(tapLoginAction), for: .touchUpInside)
     }
     
+    // всплывающий алерт при вводе неправильного пароля
+    private func wrongPasswordAlert() {
+        let alert = UIAlertController(title: "Пароль неверный!", message: "Проверьте вводимые данные", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "ОК", style: .default) { (action) in
+            //print("Сообщение в консоль")
+            }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .destructive)
+            alert.addAction(cancelAction)
+            alert.addAction(okAction)
+            present(alert, animated: true)
+        }
+    
     // метод перехода на страницу профиля с проверкой логина и пароля
     @objc private func tapLoginAction() {
         let profileVC = ProfileViewController()
@@ -205,15 +217,18 @@ final class LogInViewController: UIViewController {
             passwordLenghtCheckLabel.text = "Пароль не может быть пустым"
             shakeAnimation2()
         } else if emailTextField.text! != email {
+            passwordLenghtCheckLabel.isHidden = false
+            passwordLenghtCheckLabel.text = "Неверно указан email или телефон"
             shakeAnimation()
         } else if passwordTextField.text!.count < 8 && emailTextField.text! == email {
             passwordLenghtCheckLabel.isHidden = false
             passwordLenghtCheckLabel.text = "Длина пароля должна быть не менее 8 символов"
-            shakeAnimation2()
-        } else if passwordTextField.text! != password && emailTextField.text! == email {
-            passwordLenghtCheckLabel.text = "Пароль неверный"
             passwordTextField.text = ""
             shakeAnimation2()
+        } else if passwordTextField.text! != password && emailTextField.text! == email {
+            passwordTextField.text = ""
+            shakeAnimation2()
+            wrongPasswordAlert()
         } else if emailTextField.text! == email && passwordTextField.text! == password {
             passwordLenghtCheckLabel.isHidden = true
             navigationController?.pushViewController(profileVC, animated: true)

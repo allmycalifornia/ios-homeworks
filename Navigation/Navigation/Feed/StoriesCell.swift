@@ -132,6 +132,7 @@ final class StoriesCell: UITableViewCell {
                 
                 user1TextLabel.topAnchor.constraint(equalTo: imageView1.bottomAnchor, constant: insetImage),
                 user1TextLabel.centerXAnchor.constraint(equalTo: imageView1.centerXAnchor),
+                user1TextLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -insetImage),
                 
                 imageView2.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset),
                 imageView2.leadingAnchor.constraint(equalTo: imageView1.trailingAnchor, constant: insetImage),

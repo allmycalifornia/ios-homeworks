@@ -38,7 +38,7 @@ class FeedTableHeaderView: UIView {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "plus.circle")
-        imageView.tintColor = .black
+        imageView.tintColor = .systemBlue
         return imageView
     }()
     
@@ -48,7 +48,7 @@ class FeedTableHeaderView: UIView {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "magnifyingglass")
-        imageView.tintColor = .black
+        imageView.tintColor = .systemBlue
         return imageView
     }()
     
@@ -58,7 +58,7 @@ class FeedTableHeaderView: UIView {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "bell")
-        imageView.tintColor = .black
+        imageView.tintColor = .systemBlue
         return imageView
     }()
     

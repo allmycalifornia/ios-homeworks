@@ -12,7 +12,7 @@ class PostTableViewCell: UITableViewCell {
     private let postImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.borderWidth = 0.5
         imageView.layer.borderColor = UIColor.systemGray.cgColor

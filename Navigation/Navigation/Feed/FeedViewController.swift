@@ -33,6 +33,11 @@ final class FeedViewController: UIViewController {
         layout()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .middle)
+        }
+    
     private func layout() {
             view.addSubview(tableView)
             tableView.tableHeaderView = FeedTableHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 90))

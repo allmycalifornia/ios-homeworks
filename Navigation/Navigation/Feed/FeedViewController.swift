@@ -22,6 +22,7 @@ final class FeedViewController: UIViewController {
         tableView.sectionFooterHeight = .zero
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(StoriesCell.self, forCellReuseIdentifier: StoriesCell.identifier )
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier )
         return tableView
     }()
@@ -58,11 +59,10 @@ extension FeedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-//        case 0:
-//            let cell: PhotosTableViewCell = tableView.dequeueReusableCell(withIdentifier: PhotosTableViewCell.identifier, for: indexPath) as! PhotosTableViewCell
-//            cell.goToGalleryButton.addTarget(self, action: #selector(setupGoToGalleryButton), for: .touchUpInside)
-//            return cell
-//
+        case 0:
+            let cell: StoriesCell = tableView.dequeueReusableCell(withIdentifier: StoriesCell.identifier, for: indexPath) as! StoriesCell
+            return cell
+
         default:
             if let post: Post = model[indexPath.section][indexPath.row] as? Post {
                 let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
@@ -72,11 +72,6 @@ extension FeedViewController: UITableViewDataSource {
             
         }
     }
-    
-//    @objc private func setupGoToGalleryButton() {
-//            let photosVC = PhotosViewController()
-//            navigationController?.pushViewController(photosVC, animated: true)
-//        }
    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

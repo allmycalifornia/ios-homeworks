@@ -117,7 +117,6 @@ final class PhotosTableViewCell: UITableViewCell {
                 imageView4.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset)
             ])
         }
-        
 }
 
 

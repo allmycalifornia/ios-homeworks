@@ -21,6 +21,7 @@
 		8E769AF629A62B4300E678F8 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E769AF529A62B4300E678F8 /* Gallery.swift */; };
 		8E9F686A298E5BBE003520DD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9F6869298E5BBE003520DD /* InfoViewController.swift */; };
 		8EA78567299BAD5900247125 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA78566299BAD5900247125 /* LogInViewController.swift */; };
+		8EAB653729BDAA720014D70A /* StoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB653629BDAA720014D70A /* StoriesCell.swift */; };
 		8EB58F762992407500F565DD /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB58F752992407500F565DD /* ProfileTableHeaderView.swift */; };
 		8EBBFA9F299D67CC00A323FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBBFA9E299D67CC00A323FA /* Extensions.swift */; };
 		8ED52208299F67BE00D92B8D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED52207299F67BE00D92B8D /* PostTableViewCell.swift */; };
@@ -44,6 +45,7 @@
 		8E769AF529A62B4300E678F8 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
 		8E9F6869298E5BBE003520DD /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		8EA78566299BAD5900247125 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		8EAB653629BDAA720014D70A /* StoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCell.swift; sourceTree = "<group>"; };
 		8EB58F752992407500F565DD /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		8EBBFA9E299D67CC00A323FA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8ED52207299F67BE00D92B8D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				8E6EC75E298A82F500E96FD3 /* FeedViewController.swift */,
 				8E143D8529BCFD8F0097E0DF /* FeedTableHeaderView.swift */,
+				8EAB653629BDAA720014D70A /* StoriesCell.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E769AEE29A5FB8200E678F8 /* PhotosTableViewCell.swift in Sources */,
+				8EAB653729BDAA720014D70A /* StoriesCell.swift in Sources */,
 				8E769AF629A62B4300E678F8 /* Gallery.swift in Sources */,
 				8E769AF129A60AAF00E678F8 /* PhotosViewController.swift in Sources */,
 				8E6EC761298A830F00E96FD3 /* ProfileViewController.swift in Sources */,

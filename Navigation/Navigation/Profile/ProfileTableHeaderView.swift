@@ -61,15 +61,32 @@ class ProfileTableHeaderView: UIView {
         return button
     }()
     
+    // Функция для показа анимации подергивания поля установки статуса
+       private func shakeAnimationForStatusTextField() {
+           let animation = CABasicAnimation(keyPath: "position")
+           animation.duration = 0.07
+           animation.repeatCount = 4
+           animation.autoreverses = true
+           animation.fromValue = NSValue(cgPoint: CGPoint(x: statusTextField.center.x - 10, y: statusTextField.center.y))
+           animation.toValue = NSValue(cgPoint: CGPoint(x: statusTextField.center.x + 10, y: statusTextField.center.y))
+
+           statusTextField.layer.add(animation, forKey: "position")
+       }
+    
+    
     @objc private func statusButtonPressed() {
-        statusLabelChanger().text = statusTextFieldChanger().text
+        if statusTextField.text!.isEmpty {
+            shakeAnimationForStatusTextField()
+        } else {
+            statusLabelChanger().text = statusTextFieldChanger().text
+        }
     }
     
     // поле для ввода статуса пользователя
     private lazy var statusTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "This is the way"
+        textField.placeholder = "Введите новый статус"
         textField.indent(size: 10)
         textField.delegate = self
         textField.backgroundColor = .white
@@ -77,7 +94,7 @@ class ProfileTableHeaderView: UIView {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black.cgColor
         textField.font = .systemFont(ofSize: 15, weight: .regular)
-        textField.textColor = .black
+        textField.textColor = .systemGray6
         return textField
     }()
     

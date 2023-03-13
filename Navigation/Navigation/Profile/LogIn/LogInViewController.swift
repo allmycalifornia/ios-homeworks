@@ -11,7 +11,7 @@ final class LogInViewController: UIViewController {
 
     private let notification = NotificationCenter.default
     
-    var email: String = "admin@admin.com"
+    var email: String = "admin@admin.ru"
     var password: String = "Admin123"
     
     
@@ -80,7 +80,7 @@ final class LogInViewController: UIViewController {
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 10, weight: .light)
         label.textColor = .red
-        label.text = "Длина пароля не может быть меньше 8 символов"
+        label.text = ""
         label.isHidden = true
         return label
     }()

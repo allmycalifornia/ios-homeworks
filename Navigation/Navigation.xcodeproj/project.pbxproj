@@ -11,6 +11,7 @@
 		8E0CDA3129890EDA00618444 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CDA3029890EDA00618444 /* SceneDelegate.swift */; };
 		8E0CDA3829890EDB00618444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E0CDA3729890EDB00618444 /* Assets.xcassets */; };
 		8E0CDA3B29890EDB00618444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E0CDA3929890EDB00618444 /* LaunchScreen.storyboard */; };
+		8E143D8629BCFD8F0097E0DF /* FeedTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E143D8529BCFD8F0097E0DF /* FeedTableHeaderView.swift */; };
 		8E6EC75F298A82F500E96FD3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6EC75E298A82F500E96FD3 /* FeedViewController.swift */; };
 		8E6EC761298A830F00E96FD3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6EC760298A830F00E96FD3 /* ProfileViewController.swift */; };
 		8E6EC763298A86EE00E96FD3 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6EC762298A86EE00E96FD3 /* PostViewController.swift */; };
@@ -20,6 +21,7 @@
 		8E769AF629A62B4300E678F8 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E769AF529A62B4300E678F8 /* Gallery.swift */; };
 		8E9F686A298E5BBE003520DD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9F6869298E5BBE003520DD /* InfoViewController.swift */; };
 		8EA78567299BAD5900247125 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA78566299BAD5900247125 /* LogInViewController.swift */; };
+		8EAB653729BDAA720014D70A /* StoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAB653629BDAA720014D70A /* StoriesCell.swift */; };
 		8EB58F762992407500F565DD /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB58F752992407500F565DD /* ProfileTableHeaderView.swift */; };
 		8EBBFA9F299D67CC00A323FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBBFA9E299D67CC00A323FA /* Extensions.swift */; };
 		8ED52208299F67BE00D92B8D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED52207299F67BE00D92B8D /* PostTableViewCell.swift */; };
@@ -33,6 +35,7 @@
 		8E0CDA3729890EDB00618444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E0CDA3A29890EDB00618444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E0CDA3C29890EDB00618444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E143D8529BCFD8F0097E0DF /* FeedTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableHeaderView.swift; sourceTree = "<group>"; };
 		8E6EC75E298A82F500E96FD3 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		8E6EC760298A830F00E96FD3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8E6EC762298A86EE00E96FD3 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		8E769AF529A62B4300E678F8 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
 		8E9F6869298E5BBE003520DD /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		8EA78566299BAD5900247125 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		8EAB653629BDAA720014D70A /* StoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCell.swift; sourceTree = "<group>"; };
 		8EB58F752992407500F565DD /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		8EBBFA9E299D67CC00A323FA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8ED52207299F67BE00D92B8D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -62,6 +66,9 @@
 		8E0CDA2229890EDA00618444 = {
 			isa = PBXGroup;
 			children = (
+				8EEE170029BB5B5F00ACBE84 /* Extensions */,
+				8EEE16FD29BB5B3A00ACBE84 /* Assets */,
+				8EEE16FC29BB5B1B00ACBE84 /* Configure */,
 				8E0CDA2D29890EDA00618444 /* Navigation */,
 				8E0CDA2C29890EDA00618444 /* Products */,
 			);
@@ -78,18 +85,12 @@
 		8E0CDA2D29890EDA00618444 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				8EEE170129BB5B9000ACBE84 /* Info */,
+				8EEE16FF29BB5B5300ACBE84 /* Posts */,
+				8EEE16FE29BB5B4300ACBE84 /* Feed */,
 				8E769AEF29A60A7700E678F8 /* CollectionView */,
 				8ED52204299F674800D92B8D /* TableView */,
 				8EB58F7429923FB100F565DD /* Profile */,
-				8E0CDA2E29890EDA00618444 /* AppDelegate.swift */,
-				8E0CDA3029890EDA00618444 /* SceneDelegate.swift */,
-				8E6EC75E298A82F500E96FD3 /* FeedViewController.swift */,
-				8E6EC762298A86EE00E96FD3 /* PostViewController.swift */,
-				8E9F6869298E5BBE003520DD /* InfoViewController.swift */,
-				8EBBFA9E299D67CC00A323FA /* Extensions.swift */,
-				8EFAC919298BEED1003B677D /* Post.swift */,
-				8E0CDA3729890EDB00618444 /* Assets.xcassets */,
-				8E0CDA3929890EDB00618444 /* LaunchScreen.storyboard */,
 				8E0CDA3C29890EDB00618444 /* Info.plist */,
 			);
 			path = Navigation;
@@ -146,6 +147,59 @@
 				8E769AED29A5FB8200E678F8 /* PhotosTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		8EEE16FC29BB5B1B00ACBE84 /* Configure */ = {
+			isa = PBXGroup;
+			children = (
+				8E0CDA3929890EDB00618444 /* LaunchScreen.storyboard */,
+				8E0CDA3029890EDA00618444 /* SceneDelegate.swift */,
+				8E0CDA2E29890EDA00618444 /* AppDelegate.swift */,
+			);
+			path = Configure;
+			sourceTree = "<group>";
+		};
+		8EEE16FD29BB5B3A00ACBE84 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8E0CDA3729890EDB00618444 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		8EEE16FE29BB5B4300ACBE84 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				8E6EC75E298A82F500E96FD3 /* FeedViewController.swift */,
+				8E143D8529BCFD8F0097E0DF /* FeedTableHeaderView.swift */,
+				8EAB653629BDAA720014D70A /* StoriesCell.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		8EEE16FF29BB5B5300ACBE84 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				8EFAC919298BEED1003B677D /* Post.swift */,
+				8E6EC762298A86EE00E96FD3 /* PostViewController.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		8EEE170029BB5B5F00ACBE84 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8EBBFA9E299D67CC00A323FA /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8EEE170129BB5B9000ACBE84 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				8E9F6869298E5BBE003520DD /* InfoViewController.swift */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +273,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E769AEE29A5FB8200E678F8 /* PhotosTableViewCell.swift in Sources */,
+				8EAB653729BDAA720014D70A /* StoriesCell.swift in Sources */,
 				8E769AF629A62B4300E678F8 /* Gallery.swift in Sources */,
 				8E769AF129A60AAF00E678F8 /* PhotosViewController.swift in Sources */,
 				8E6EC761298A830F00E96FD3 /* ProfileViewController.swift in Sources */,
+				8E143D8629BCFD8F0097E0DF /* FeedTableHeaderView.swift in Sources */,
 				8E6EC75F298A82F500E96FD3 /* FeedViewController.swift in Sources */,
 				8ED52208299F67BE00D92B8D /* PostTableViewCell.swift in Sources */,
 				8EA78567299BAD5900247125 /* LogInViewController.swift in Sources */,
@@ -378,6 +434,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -408,6 +465,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

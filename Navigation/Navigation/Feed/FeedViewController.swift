@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  FeedViewController.swift
 //  Navigation
 //
 //  Created by Борис Кравченко on 01.02.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileViewController: UIViewController {
+final class FeedViewController: UIViewController {
     
     private let notification = NotificationCenter.default
     
@@ -22,19 +22,25 @@ final class ProfileViewController: UIViewController {
         tableView.sectionFooterHeight = .zero
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: PhotosTableViewCell.identifier )
+        tableView.register(StoriesCell.self, forCellReuseIdentifier: StoriesCell.identifier )
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier )
         return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideNavigationBar()
         layout()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .middle)
+        }
+    
     private func layout() {
             view.addSubview(tableView)
-            tableView.tableHeaderView = ProfileTableHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 220))
+            tableView.tableHeaderView = FeedTableHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 90))
             tableView.backgroundColor = .systemGray4
         
         NSLayoutConstraint.activate([
@@ -46,8 +52,7 @@ final class ProfileViewController: UIViewController {
     }
 }
 
-
-extension ProfileViewController: UITableViewDataSource {
+extension FeedViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return model.count
@@ -60,10 +65,9 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell: PhotosTableViewCell = tableView.dequeueReusableCell(withIdentifier: PhotosTableViewCell.identifier, for: indexPath) as! PhotosTableViewCell
-            cell.goToGalleryButton.addTarget(self, action: #selector(setupGoToGalleryButton), for: .touchUpInside)
+            let cell: StoriesCell = tableView.dequeueReusableCell(withIdentifier: StoriesCell.identifier, for: indexPath) as! StoriesCell
             return cell
-        
+
         default:
             if let post: Post = model[indexPath.section][indexPath.row] as? Post {
                 let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
@@ -73,11 +77,6 @@ extension ProfileViewController: UITableViewDataSource {
             
         }
     }
-    
-    @objc private func setupGoToGalleryButton() {
-            let photosVC = PhotosViewController()
-            navigationController?.pushViewController(photosVC, animated: true)
-        }
    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -85,7 +84,7 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return section == 0 ? ProfileTableHeaderView() : nil
+        return section == 0 ? FeedTableHeaderView() : nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -94,7 +93,7 @@ extension ProfileViewController: UITableViewDataSource {
     
 }
 
-extension ProfileViewController: UITableViewDelegate {
+extension FeedViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return indexPath.section == 1
@@ -108,10 +107,58 @@ extension ProfileViewController: UITableViewDelegate {
     }
     
 }
-    
 
 
 
 
+//        private let viewPostButton: UIButton = {
+//            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+//            button.setTitle("Посмотреть пост", for: .normal)
+//            button.backgroundColor = .systemBlue
+//            return button
+//        }()
+//
+//        override func viewDidLoad() {
+//            super.viewDidLoad()
+//            view.backgroundColor = .white
+//            setupButton()
+//            makeBarItem()
+//        }
+//
+//
+//        // установка кнопки по центру экрана
+//        private func setupButton() {
+//            view.addSubview(viewPostButton)
+//            viewPostButton.center = view.center
+//            viewPostButton.addTarget(self, action: #selector(tapAction), for: .touchUpInside)
+//        }
+//
+//        // верхняя кнопка "Дальше"
+//        private func makeBarItem() {
+//            let barItem = UIBarButtonItem(title: "Профиль", style: .plain, target: self, action: #selector(barItemAction))
+//            navigationItem.rightBarButtonItem = barItem
+//        }
+//
+//        // переход на экран "Профиль"
+//        @objc private func barItemAction() {
+//            let profileVC = ProfileViewController()
+//            profileVC.title = "Профиль"
+//            profileVC.modalPresentationStyle = .fullScreen
+//            navigationController?.pushViewController(profileVC, animated: true)
+//        }
+//
+//
+//
+//        // метод действия кнопки
+//        @objc private func tapAction() {
+//            let postVC = PostViewController()
+//            //postVC.titlePost = post.title
+//            //present(postVC, animated: true)
+//            navigationController?.pushViewController(postVC, animated: true)
+//        }
+//
+//
+//    
+//}
 
 

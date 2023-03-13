@@ -12,7 +12,7 @@ class PostTableViewCell: UITableViewCell {
     private let postImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.borderWidth = 0.5
         imageView.layer.borderColor = UIColor.systemGray.cgColor
@@ -48,6 +48,16 @@ class PostTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let likesImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.image = UIImage(systemName: "heart.fill")
+        imageView.tintColor = .red
+        return imageView
+    }()
+    
     private let viewsText: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +65,16 @@ class PostTableViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textColor = .black
         return label
+    }()
+    
+    private let viewsImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.image = UIImage(systemName: "eye.fill")
+        imageView.tintColor = .darkGray
+        return imageView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -75,7 +95,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     private func layout() {
-        [authorText, postImageView, descriptionText, likesText, viewsText].forEach { contentView.addSubview($0) }
+        [authorText, postImageView, descriptionText, likesText, likesImageView, viewsText, viewsImageView].forEach { contentView.addSubview($0) }
         contentView.layer.borderWidth = 0
         let inset: CGFloat = 16
         
@@ -89,19 +109,31 @@ class PostTableViewCell: UITableViewCell {
             postImageView.topAnchor.constraint(equalTo: authorText.bottomAnchor, constant: inset),
             postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -0.5),
             postImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0.5),
-            postImageView.heightAnchor.constraint(equalToConstant: screenWidth),
+            postImageView.heightAnchor.constraint(equalToConstant: screenWidth*0.75),
    
             descriptionText.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: inset),
             descriptionText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
             descriptionText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
+            
+            likesImageView.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: inset),
+            likesImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
+            likesImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
+            likesImageView.heightAnchor.constraint(equalToConstant: inset),
+            likesImageView.widthAnchor.constraint(equalToConstant: inset),
    
             likesText.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: inset),
-            likesText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
+            likesText.leadingAnchor.constraint(equalTo: likesImageView.trailingAnchor, constant: inset/3),
             likesText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
    
             viewsText.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: inset),
             viewsText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
-            viewsText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset)
+            viewsText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
+            
+            viewsImageView.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: inset),
+            viewsImageView.trailingAnchor.constraint(equalTo: viewsText.leadingAnchor, constant: -inset/3),
+            viewsImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
+            viewsImageView.heightAnchor.constraint(equalToConstant: inset),
+            viewsImageView.widthAnchor.constraint(equalToConstant: inset),
         ])
     }
 

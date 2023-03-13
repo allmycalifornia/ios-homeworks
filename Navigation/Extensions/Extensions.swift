@@ -49,6 +49,14 @@ extension UITextField {
 }
 
 // расширение для скрытия клавиатуры
+extension ProfileTableHeaderView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        return true
+    }
+}
+
+// расширение для скрытия клавиатуры
 extension LogInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
@@ -71,6 +79,12 @@ extension PhotosViewController {
     }
 }
 
+// расширение для скрытия navbar'a
+extension FeedViewController {
+    func hideNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+}
 
 
 extension UIView {
@@ -78,6 +92,9 @@ extension UIView {
         String(describing: self)
     }
 }
+
+
+
 
 
 //// расширение Datasource

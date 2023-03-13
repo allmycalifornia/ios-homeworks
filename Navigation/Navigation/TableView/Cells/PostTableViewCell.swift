@@ -109,7 +109,7 @@ class PostTableViewCell: UITableViewCell {
             postImageView.topAnchor.constraint(equalTo: authorText.bottomAnchor, constant: inset),
             postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -0.5),
             postImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0.5),
-            postImageView.heightAnchor.constraint(equalToConstant: screenWidth),
+            postImageView.heightAnchor.constraint(equalToConstant: screenWidth*0.75),
    
             descriptionText.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: inset),
             descriptionText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),

@@ -9,57 +9,57 @@ import UIKit
 
 class ProfileTableHeaderView: UIView {
     
-        // аватарка пользователя
-        private let userImageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.isUserInteractionEnabled = true
-            imageView.image = UIImage(named: "Pedro")
-            imageView.contentMode = .scaleAspectFill
-            imageView.backgroundColor = .black
-            imageView.clipsToBounds = true
-            imageView.layer.cornerRadius = 50.0
-            imageView.layer.borderWidth = 3.0
-            imageView.layer.borderColor = UIColor.white.cgColor
-            imageView.layer.masksToBounds = true
+    // аватарка пользователя
+    private let userImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = true
+        imageView.image = UIImage(named: "Pedro")
+        imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .black
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 50.0
+        imageView.layer.borderWidth = 3.0
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.masksToBounds = true
         return imageView
-        }()
+    }()
     
-        // имя пользователя
-        private let userNameLabel: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "Pedro Pascal"
-            label.textColor = .black
-            label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+    // имя пользователя
+    private let userNameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Pedro Pascal"
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
-        }()
+    }()
     
-        // статус пользователя
-        private lazy var userStatusLabel: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "Таков путь"
-            label.textColor = .darkGray
-            label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-            return label
-        }()
-        
-        // кнопка установки статуса пользователя
-        private let showStatusButton: UIButton = {
-            var button = UIButton(type: .system)
-            button = UIButton()
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle("Show status", for: .normal)
-            button.setTitleColor(.white, for: .normal)
-            button.backgroundColor = .systemBlue
-            button.layer.shadowOffset = CGSize(width: 4, height: 4)
-            button.layer.cornerRadius = 16
-            button.layer.shadowColor = UIColor.black.cgColor
-            button.layer.shadowOpacity = 0.7
-            button.addTarget(self, action: #selector(statusButtonPressed), for: .touchUpInside)
-            return button
-        }()
+    // статус пользователя
+    private lazy var userStatusLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Таков путь"
+        label.textColor = .darkGray
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        return label
+    }()
+    
+    // кнопка установки статуса пользователя
+    private let showStatusButton: UIButton = {
+        var button = UIButton(type: .system)
+        button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Show status", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
+        button.layer.cornerRadius = 16
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.7
+        button.addTarget(self, action: #selector(statusButtonPressed), for: .touchUpInside)
+        return button
+    }()
     
     @objc private func statusButtonPressed() {
         statusLabelChanger().text = statusTextFieldChanger().text
@@ -89,14 +89,13 @@ class ProfileTableHeaderView: UIView {
     func statusLabelChanger() -> UILabel {
         userStatusLabel
     }
-
+    
     func statusTextFieldChanger() -> UITextField {
         statusTextField
     }
     
     
-    
-      //сборка всех элементов для вывода на экран
+    //сборка всех элементов для вывода на экран
     func setupProfileHeaderView() {
         backgroundColor = .lightGray
         addSubview(userImageView)
@@ -104,9 +103,13 @@ class ProfileTableHeaderView: UIView {
         addSubview(userStatusLabel)
         addSubview(statusTextField)
         addSubview(showStatusButton)
+    }
+    
+    
+    
+    // установка констрейнтов для всех элементов
+    private func setConstraints() {
         
-        
-        // установка констрейнтов для всех элементов
         NSLayoutConstraint.activate([
             
             userImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -123,29 +126,29 @@ class ProfileTableHeaderView: UIView {
             userStatusLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 16),
             userStatusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             userStatusLabel.heightAnchor.constraint(equalToConstant: 20),
-
+            
             statusTextField.topAnchor.constraint(equalTo: userStatusLabel.topAnchor, constant: 20),
             statusTextField.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 16),
             statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             statusTextField.heightAnchor.constraint(equalToConstant: 40),
-
+            
             showStatusButton.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 16),
             showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             showStatusButton.heightAnchor.constraint(equalToConstant: 50)
-                ])
-        }
+        ])
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupProfileHeaderView()
+        setConstraints()
     }
-
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
     
+

@@ -8,8 +8,14 @@
 import UIKit
 
 final class FeedViewController: UIViewController {
+//    func changeText(_ text: String, indexPath: IndexPath) {
+//        print(1)
+//    }
+    //DetailDelegate
     
     private let notification = NotificationCenter.default
+    private var isNeedUpdate: Bool = false
+    private var indexPathToUpdate = IndexPath()
     
     private var model:[[Any]]  = [["Photos"], Post.makePost()]
     
@@ -34,9 +40,13 @@ final class FeedViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
-            tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .middle)
-        }
+        super.viewDidAppear(animated)
+        guard isNeedUpdate else { return }
+        tableView.reloadRows(at: [indexPathToUpdate], with: .bottom)
+        isNeedUpdate = false
+        // автоскролл наверх при переходе с другой вкладки
+        tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .middle)
+    }
     
     private func layout() {
             view.addSubview(tableView)
@@ -104,6 +114,13 @@ extension FeedViewController: UITableViewDelegate {
             model[indexPath.section].remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailPostViewController(post: model[indexPath.section][indexPath.row] as! Post, indexPath: indexPath)
+        //detailVC.delegate = self
+        detailVC.modalPresentationStyle = .automatic
+        present(detailVC, animated: true)
     }
     
 }

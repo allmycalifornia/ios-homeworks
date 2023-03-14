@@ -79,6 +79,7 @@ class ProfileTableHeaderView: UIView {
             shakeAnimationForStatusTextField()
         } else {
             statusLabelChanger().text = statusTextFieldChanger().text
+            statusTextField.text = ""
         }
     }
     
@@ -94,7 +95,7 @@ class ProfileTableHeaderView: UIView {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black.cgColor
         textField.font = .systemFont(ofSize: 15, weight: .regular)
-        textField.textColor = .systemGray6
+        textField.textColor = .gray
         return textField
     }()
     

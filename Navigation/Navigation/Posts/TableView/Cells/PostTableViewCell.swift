@@ -32,7 +32,7 @@ class PostTableViewCell: UITableViewCell {
     private let descriptionText: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.numberOfLines = 10
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textAlignment = .justified
         label.textColor = .systemGray
@@ -54,9 +54,22 @@ class PostTableViewCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "heart.fill")
-        imageView.tintColor = .red
+        imageView.tintColor = .darkGray
         return imageView
     }()
+    
+    private func likeGesture() {
+        let likeGesture = UITapGestureRecognizer(target: self, action: #selector(tapLikeAction))
+        likesImageView.isUserInteractionEnabled = true
+        likesText.isUserInteractionEnabled = true
+        likesImageView.addGestureRecognizer(likeGesture)
+    }
+
+    @objc
+    private func tapLikeAction() {
+        likesImageView.tintColor = .red
+        //likesText.text = String(likesText + 1)
+    }
     
     private let viewsText: UILabel = {
         let label = UILabel()
@@ -80,6 +93,7 @@ class PostTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         layout()
+        likeGesture()
     }
     
     required init?(coder: NSCoder) {

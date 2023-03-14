@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E017EB129C0A1F6002CB0C8 /* DetailPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E017EB029C0A1F6002CB0C8 /* DetailPostView.swift */; };
+		8E017EB329C0AEC0002CB0C8 /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E017EB229C0AEC0002CB0C8 /* DetailPostViewController.swift */; };
 		8E0CDA2F29890EDA00618444 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CDA2E29890EDA00618444 /* AppDelegate.swift */; };
 		8E0CDA3129890EDA00618444 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0CDA3029890EDA00618444 /* SceneDelegate.swift */; };
 		8E0CDA3829890EDB00618444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E0CDA3729890EDB00618444 /* Assets.xcassets */; };
@@ -29,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E017EB029C0A1F6002CB0C8 /* DetailPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostView.swift; sourceTree = "<group>"; };
+		8E017EB229C0AEC0002CB0C8 /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
+		8E017EB529C0B530002CB0C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8E0CDA2B29890EDA00618444 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E0CDA2E29890EDA00618444 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E0CDA3029890EDA00618444 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +94,6 @@
 				8EEE16FF29BB5B5300ACBE84 /* Posts */,
 				8EEE16FE29BB5B4300ACBE84 /* Feed */,
 				8E769AEF29A60A7700E678F8 /* CollectionView */,
-				8ED52204299F674800D92B8D /* TableView */,
 				8EB58F7429923FB100F565DD /* Profile */,
 				8E0CDA3C29890EDB00618444 /* Info.plist */,
 			);
@@ -180,7 +184,10 @@
 		8EEE16FF29BB5B5300ACBE84 /* Posts */ = {
 			isa = PBXGroup;
 			children = (
+				8ED52204299F674800D92B8D /* TableView */,
 				8EFAC919298BEED1003B677D /* Post.swift */,
+				8E017EB029C0A1F6002CB0C8 /* DetailPostView.swift */,
+				8E017EB229C0AEC0002CB0C8 /* DetailPostViewController.swift */,
 				8E6EC762298A86EE00E96FD3 /* PostViewController.swift */,
 			);
 			path = Posts;
@@ -282,7 +289,9 @@
 				8ED52208299F67BE00D92B8D /* PostTableViewCell.swift in Sources */,
 				8EA78567299BAD5900247125 /* LogInViewController.swift in Sources */,
 				8E0CDA2F29890EDA00618444 /* AppDelegate.swift in Sources */,
+				8E017EB329C0AEC0002CB0C8 /* DetailPostViewController.swift in Sources */,
 				8E9F686A298E5BBE003520DD /* InfoViewController.swift in Sources */,
+				8E017EB129C0A1F6002CB0C8 /* DetailPostView.swift in Sources */,
 				8EFAC91A298BEED1003B677D /* Post.swift in Sources */,
 				8E0CDA3129890EDA00618444 /* SceneDelegate.swift in Sources */,
 				8E769AF429A6201100E678F8 /* CollectionViewCell.swift in Sources */,
@@ -299,6 +308,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8E0CDA3A29890EDB00618444 /* Base */,
+				8E017EB529C0B530002CB0C8 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

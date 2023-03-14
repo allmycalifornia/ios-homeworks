@@ -107,6 +107,13 @@ extension ProfileViewController: UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailPostViewController(post: model[indexPath.section][indexPath.row] as! Post, indexPath: indexPath)
+        //detailVC.delegate = self
+        detailVC.modalPresentationStyle = .popover
+        present(detailVC, animated: true)
+    }
+    
 }
     
 

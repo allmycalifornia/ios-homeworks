@@ -9,7 +9,7 @@ import UIKit
 
 final class PhotosViewController: UIViewController {
     
-    let source: [Gallery] = Source.randomPhotos(with: 20)
+    let source: [Gallery] = Source.randomPhotos(with: 50)
     
     private let notification = NotificationCenter.default
     
@@ -46,7 +46,6 @@ final class PhotosViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
 }
 
 extension PhotosViewController: UICollectionViewDataSource {
@@ -87,3 +86,59 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
         sideInset
     }
 }
+
+extension PhotosViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        let imageView = UIImageView(image: cell.imageView.image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = cell.imageView.convert(cell.imageView.bounds, to: view)
+        view.addSubview(imageView)
+
+        let backgroundView = UIView(frame: view.bounds)
+        backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        backgroundView.alpha = 0
+        view.addSubview(backgroundView)
+        view.bringSubviewToFront(imageView)
+
+        let closeButton = UIButton(type: .custom)
+        closeButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+        closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        closeButton.tintColor = .white
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.addSubview(closeButton)
+
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            closeButton.widthAnchor.constraint(equalToConstant: 44),
+            closeButton.heightAnchor.constraint(equalToConstant: 44)
+        ])
+
+        UIView.animate(withDuration: 0.3) {
+            imageView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.width)
+            imageView.center = self.view.center
+            backgroundView.alpha = 1
+        }
+    }
+
+    @objc private func closeButtonTapped() {
+        if let imageView = view.subviews.first(where: { $0 is UIImageView }) {
+            UIView.animate(withDuration: 0.3, animations: {
+                imageView.frame = (imageView.superview?.convert(self.view.frame, to: imageView))!
+            }, completion: { finished in
+                imageView.removeFromSuperview()
+            })
+        }
+
+        if let backgroundView = view.subviews.first(where: { $0.backgroundColor == UIColor.black.withAlphaComponent(0.5) }) {
+            UIView.animate(withDuration: 0.3, animations: {
+                backgroundView.alpha = 0
+            }, completion: { finished in
+                backgroundView.removeFromSuperview()
+            })
+        }
+    }
+}
+

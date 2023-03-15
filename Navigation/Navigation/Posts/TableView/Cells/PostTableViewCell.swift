@@ -51,7 +51,7 @@ class PostTableViewCell: UITableViewCell {
     private let likesImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = UIImage(systemName: "heart.fill")
         imageView.tintColor = .darkGray
@@ -60,12 +60,16 @@ class PostTableViewCell: UITableViewCell {
     
     private func likeGesture() {
         let likeGesture = UITapGestureRecognizer(target: self, action: #selector(tapLikeAction))
-        likesImageView.isUserInteractionEnabled = true
-        likesImageView.addGestureRecognizer(likeGesture)
         likesText.isUserInteractionEnabled = true
         likesText.addGestureRecognizer(likeGesture)
     }
 
+    private func likeImageGesture() {
+        let likeGesture = UITapGestureRecognizer(target: self, action: #selector(tapLikeAction))
+        likesImageView.isUserInteractionEnabled = true
+        likesImageView.addGestureRecognizer(likeGesture)
+    }
+    
     @objc private func tapLikeAction() {
         if likesImageView.tintColor == .red {
             likesImageView.tintColor = .gray

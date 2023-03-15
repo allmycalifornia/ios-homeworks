@@ -55,44 +55,26 @@ final class DetailPostView: UIView {
         label.textColor = .black
         return label
     }()
-
-    private let likesText: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        label.textColor = .black
-        return label
-    }()
     
-    private let likesImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        imageView.image = UIImage(systemName: "heart.fill")
-        imageView.tintColor = .darkGray
-        return imageView
-    }()
+        private let swipeDownText: UILabel = {
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.numberOfLines = 1
+            label.font = UIFont.systemFont(ofSize: 12, weight: .thin)
+            label.textColor = .systemGray2
+            label.text = "Смахните вниз для возврата в ленту"
+            return label
+        }()
     
-    private let viewsText: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        label.textColor = .black
-        return label
-    }()
-    
-    private let viewsImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        imageView.image = UIImage(systemName: "eye.fill")
-        imageView.tintColor = .darkGray
-        return imageView
-    }()
+        private let swipeDownImage: UIImageView = {
+            let imageView = UIImageView()
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.contentMode = .scaleAspectFit
+            imageView.clipsToBounds = true
+            imageView.image = UIImage(systemName: "chevron.down")
+            imageView.tintColor = .systemGray4
+            return imageView
+        }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -108,8 +90,6 @@ final class DetailPostView: UIView {
         authorText.text = post.author
         postImageView.image = post.image
         descriptionText.text = post.description
-        likesText.text = "Likes: \(post.likes)"
-        viewsText.text = "Views: \(post.views)"
     }
     
     private func layout() {
@@ -118,10 +98,8 @@ final class DetailPostView: UIView {
         contentView.addSubview(authorText)
         contentView.addSubview(postImageView)
         contentView.addSubview(descriptionText)
-        contentView.addSubview(likesText)
-        contentView.addSubview(likesImageView)
-        contentView.addSubview(viewsText)
-        contentView.addSubview(viewsImageView)
+        contentView.addSubview(swipeDownText)
+        contentView.addSubview(swipeDownImage)
         
         let inset: CGFloat = 16
         let screenWidth = UIScreen.main.bounds.width
@@ -150,25 +128,12 @@ final class DetailPostView: UIView {
             descriptionText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
             descriptionText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
             
-            likesImageView.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: inset),
-            likesImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
-            likesImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
-            likesImageView.heightAnchor.constraint(equalToConstant: inset),
-            likesImageView.widthAnchor.constraint(equalToConstant: inset),
-   
-            likesText.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: inset),
-            likesText.leadingAnchor.constraint(equalTo: likesImageView.trailingAnchor, constant: inset/3),
-            likesText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
-   
-            viewsText.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: inset),
-            viewsText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
-            viewsText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
+            swipeDownText.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: inset),
+            swipeDownText.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
-            viewsImageView.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: inset),
-            viewsImageView.trailingAnchor.constraint(equalTo: viewsText.leadingAnchor, constant: -inset/3),
-            viewsImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset),
-            viewsImageView.heightAnchor.constraint(equalToConstant: inset),
-            viewsImageView.widthAnchor.constraint(equalToConstant: inset),
+            swipeDownImage.topAnchor.constraint(equalTo: swipeDownText.bottomAnchor, constant: inset/8),
+            swipeDownImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            swipeDownImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
 }

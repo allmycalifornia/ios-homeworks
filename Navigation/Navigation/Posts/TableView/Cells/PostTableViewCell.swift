@@ -61,14 +61,39 @@ class PostTableViewCell: UITableViewCell {
     private func likeGesture() {
         let likeGesture = UITapGestureRecognizer(target: self, action: #selector(tapLikeAction))
         likesImageView.isUserInteractionEnabled = true
-        likesText.isUserInteractionEnabled = true
         likesImageView.addGestureRecognizer(likeGesture)
+        likesText.isUserInteractionEnabled = true
+        likesText.addGestureRecognizer(likeGesture)
     }
 
-    @objc
-    private func tapLikeAction() {
-        likesImageView.tintColor = .red
-        //likesText.text = String(likesText + 1)
+    @objc private func tapLikeAction() {
+        if likesImageView.tintColor == .red {
+            likesImageView.tintColor = .gray
+            viewsImageView.tintColor = .black
+            if let likesText = likesText.text, let likes = Int(likesText.split(separator: " ")[1]) {
+                self.likesText.text = "Likes: \(likes - 1)"
+            }
+        } else {
+            likesImageView.tintColor = .red
+            viewsImageView.tintColor = .black
+            if let likesText = likesText.text, let likes = Int(likesText.split(separator: " ")[1]) {
+                self.likesText.text = "Likes: \(likes + 1)"
+            }
+            if let viewsText = viewsText.text, let views = Int(viewsText.split(separator: " ")[1]) {
+                self.viewsText.text = "Views: \(views + 1)"
+            }
+        }
+        
+        // Animate the change in the like and view counts
+        UIView.animate(withDuration: 0.2, animations: {
+            self.likesImageView.transform = CGAffineTransform(scaleX: 3, y: 3)
+            //self.viewsImageView.transform = CGAffineTransform(scaleX: 3, y: 3)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.2, animations: {
+                self.likesImageView.transform = CGAffineTransform.identity
+                self.viewsImageView.transform = CGAffineTransform.identity
+            })
+        })
     }
     
     private let viewsText: UILabel = {

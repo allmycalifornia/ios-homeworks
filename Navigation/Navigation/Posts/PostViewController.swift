@@ -33,6 +33,7 @@ final class PostViewController: UIViewController {
     @objc private func infoBarItemAction() {
         let infoVC = InfoViewController()
         infoVC.title = "Инфо"
+        
         infoVC.modalPresentationStyle = .fullScreen
         present(infoVC, animated: true)
     }

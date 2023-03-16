@@ -112,7 +112,6 @@ class ProfileTableHeaderView: UIView {
         statusTextField
     }
     
-    
     //сборка всех элементов для вывода на экран
     func setupProfileHeaderView() {
         backgroundColor = .lightGray
@@ -161,6 +160,7 @@ class ProfileTableHeaderView: UIView {
         super.init(frame: frame)
         setupProfileHeaderView()
         setConstraints()
+        
     }
     
     

@@ -40,8 +40,6 @@ final class FeedViewController: UIViewController {
         guard isNeedUpdate else { return }
         tableView.reloadRows(at: [indexPathToUpdate], with: .bottom)
         isNeedUpdate = false
-        // автоскролл наверх при переходе с другой вкладки
-        tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .middle)
     }
     
     private func layout() {

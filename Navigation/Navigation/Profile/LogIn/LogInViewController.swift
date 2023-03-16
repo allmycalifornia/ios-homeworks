@@ -195,13 +195,8 @@ final class LogInViewController: UIViewController {
     
     // всплывающий алерт при вводе неправильного пароля
     private func wrongPasswordAlert() {
-        let alert = UIAlertController(title: "Пароль неверный!", message: "Проверьте вводимые данные", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "ОК", style: .default) { (action) in
-            //print("Сообщение в консоль")
-            }
-        let cancelAction = UIAlertAction(title: "Отмена", style: .destructive)
-            alert.addAction(cancelAction)
-            alert.addAction(okAction)
+        let alert = UIAlertController(title: "Ошибка", message: "Неверно указан пароль", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
             present(alert, animated: true)
         }
     

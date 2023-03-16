@@ -123,6 +123,7 @@ class PostTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         layout()
         likeGesture()
+        likeImageGesture()
     }
     
     required init?(coder: NSCoder) {

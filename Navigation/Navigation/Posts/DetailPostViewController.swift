@@ -7,18 +7,12 @@
 
 import UIKit
 
-//protocol DetailDelegate: AnyObject {
-//    func changeText(_ text: String, indexPath: IndexPath)
-//}
-
 final class DetailPostViewController: UIViewController {
     
     private let notification = NotificationCenter.default
     private let detailPostView = DetailPostView()
     private let post: Post
     private let indexPath: IndexPath
-    
-   // weak var delegate: DetailDelegate?
     
     init(
         post: Post,
@@ -37,6 +31,5 @@ final class DetailPostViewController: UIViewController {
         super.loadView()
         view = detailPostView
         detailPostView.setupCell(post: post)
-        //detailPostView.delegate = self
     }
 }

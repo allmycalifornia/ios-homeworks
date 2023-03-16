@@ -7,13 +7,7 @@
 
 import UIKit
 
-//protocol MyCustomViewDelegate: AnyObject {
-//    func changeText(_ text: String)
-//}
-
 final class DetailPostView: UIView {
-    
-    //weak var delegate: MyCustomViewDelegate?
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()

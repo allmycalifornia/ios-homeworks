@@ -32,7 +32,7 @@ class PostTableViewCell: UITableViewCell {
     private let descriptionText: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 10
+        label.numberOfLines = 5
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textAlignment = .justified
         label.textColor = .systemGray
@@ -88,17 +88,15 @@ class PostTableViewCell: UITableViewCell {
             }
         }
         
-        // Animate the change in the like and view counts
         UIView.animate(withDuration: 0.2, animations: {
             self.likesImageView.transform = CGAffineTransform(scaleX: 3, y: 3)
-            //self.viewsImageView.transform = CGAffineTransform(scaleX: 3, y: 3)
         }, completion: { _ in
             UIView.animate(withDuration: 0.2, animations: {
                 self.likesImageView.transform = CGAffineTransform.identity
-                self.viewsImageView.transform = CGAffineTransform.identity
             })
         })
     }
+
     
     private let viewsText: UILabel = {
         let label = UILabel()

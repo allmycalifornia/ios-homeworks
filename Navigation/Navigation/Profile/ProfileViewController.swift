@@ -11,6 +11,7 @@ final class ProfileViewController: UIViewController {
     
     private let notification = NotificationCenter.default
     
+    
     private var model:[[Any]]  = [["Photos"], Post.makePost()]
     
     private lazy var tableView: UITableView = {
@@ -34,7 +35,7 @@ final class ProfileViewController: UIViewController {
     
     private func layout() {
             view.addSubview(tableView)
-            tableView.tableHeaderView = ProfileTableHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 220))
+            //tableView.tableHeaderView = ProfileTableHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 220))
             tableView.backgroundColor = .systemGray4
         
         NSLayoutConstraint.activate([
@@ -115,9 +116,4 @@ extension ProfileViewController: UITableViewDelegate {
     
 }
     
-
-
-
-
-
 

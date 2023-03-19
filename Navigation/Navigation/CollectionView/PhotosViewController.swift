@@ -105,9 +105,10 @@ extension PhotosViewController: UICollectionViewDelegate {
         view.bringSubviewToFront(imageView)
 
         let closeButton = UIButton(type: .custom)
-        closeButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+        closeButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         closeButton.tintColor = .white
+        closeButton.contentMode = .scaleAspectFill
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.addSubview(closeButton)
 
@@ -124,8 +125,6 @@ extension PhotosViewController: UICollectionViewDelegate {
             backgroundView.alpha = 1
         }
     }
-
-
 
     @objc private func closeButtonTapped() {
         if let imageView = view.subviews.first(where: { $0 is UIImageView }) {

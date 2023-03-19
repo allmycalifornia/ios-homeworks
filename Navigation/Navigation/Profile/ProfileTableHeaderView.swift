@@ -10,7 +10,7 @@ import UIKit
 class ProfileTableHeaderView: UIView {
     
     // аватарка пользователя
-    private let userImageView: UIImageView = {
+    let userImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isUserInteractionEnabled = true
@@ -112,6 +112,44 @@ class ProfileTableHeaderView: UIView {
         statusTextField
     }
     
+    private let transLucentView: UIView = {
+        let view = UIView()
+        view.alpha = 0
+        view.backgroundColor = .black
+        view.frame = UIScreen.main.bounds
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private lazy var closeProfileImageButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        button.alpha = 0
+        button.tintColor = .white
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
+        return button
+    }()
+
+    @objc
+    private func cancelAction() {
+        UIView.animateKeyframes(withDuration: 0.4, delay: 0, options: [.calculationModeCubicPaced], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.2) {
+                self.closeProfileImageButton.alpha = 0
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8) {
+                self.userImageView.layer.cornerRadius = 50
+                self.userImageView.layer.borderWidth = 3
+                self.topConstraintImage.constant = 16
+                self.leadingConstraintImage.constant = 16
+                self.widthConstraintImage.constant = 100
+                self.heightConstraintImage.constant = 100
+                self.transLucentView.alpha = 0
+                self.layoutIfNeeded()
+            }
+        }, completion: nil)
+    }
+    
     //сборка всех элементов для вывода на экран
     func setupProfileHeaderView() {
         backgroundColor = .lightGray
@@ -122,51 +160,90 @@ class ProfileTableHeaderView: UIView {
         addSubview(showStatusButton)
     }
     
-    
+    private var topConstraintImage = NSLayoutConstraint()
+    private var leadingConstraintImage = NSLayoutConstraint()
+    private var widthConstraintImage = NSLayoutConstraint()
+    private var heightConstraintImage = NSLayoutConstraint()
     
     // установка констрейнтов для всех элементов
     private func setConstraints() {
         
-        NSLayoutConstraint.activate([
-            
-            userImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            userImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            userImageView.heightAnchor.constraint(equalToConstant: 100),
-            userImageView.widthAnchor.constraint(equalToConstant: 100),
-            
-            userNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
-            userNameLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 16),
-            userNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            userNameLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            userStatusLabel.topAnchor.constraint(equalTo: userNameLabel.topAnchor, constant: 30),
-            userStatusLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 16),
-            userStatusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            userStatusLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            statusTextField.topAnchor.constraint(equalTo: userStatusLabel.topAnchor, constant: 20),
-            statusTextField.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 16),
-            statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            statusTextField.heightAnchor.constraint(equalToConstant: 40),
-            
-            showStatusButton.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 16),
-            showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            showStatusButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        topConstraintImage = userImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16)
+        leadingConstraintImage = userImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16)
+        widthConstraintImage = userImageView.widthAnchor.constraint(equalToConstant: 100)
+        heightConstraintImage = userImageView.heightAnchor.constraint(equalToConstant: 100)
+
+            NSLayoutConstraint.activate([
+                topConstraintImage,
+                leadingConstraintImage,
+                widthConstraintImage,
+                heightConstraintImage,
+
+                userNameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27),
+                userNameLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 130),
+                userNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+
+
+                userStatusLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 16),
+                userStatusLabel.leadingAnchor.constraint(equalTo: userNameLabel.leadingAnchor),
+                userStatusLabel.trailingAnchor.constraint(equalTo:userNameLabel.trailingAnchor),
+
+
+                statusTextField.topAnchor.constraint(equalTo: userStatusLabel.bottomAnchor, constant: 8),
+                statusTextField.leadingAnchor.constraint(equalTo: userStatusLabel.leadingAnchor),
+                statusTextField.trailingAnchor.constraint(equalTo: userStatusLabel.trailingAnchor),
+                statusTextField.heightAnchor.constraint(equalToConstant: 40),
+
+
+                showStatusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 16),
+                showStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+                showStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+                showStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+                showStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            ])
     }
     
+    private func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        userImageView.isUserInteractionEnabled = true
+        userImageView.addGestureRecognizer(tapGesture)
+    }
+
+    @objc private func tapAction() {
+        addSubview(transLucentView)
+        addSubview(closeProfileImageButton)
+        bringSubviewToFront(userImageView)
+
+        NSLayoutConstraint.activate([
+            closeProfileImageButton.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            closeProfileImageButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            closeProfileImageButton.widthAnchor.constraint(equalToConstant: 30),
+            closeProfileImageButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0.0) {
+            self.transLucentView.alpha = 0.7
+            self.userImageView.layer.cornerRadius = 0
+            self.userImageView.layer.borderWidth = 7
+            self.topConstraintImage.constant = 100
+            self.leadingConstraintImage.constant = 0
+            self.widthConstraintImage.constant = UIScreen.main.bounds.width
+            self.heightConstraintImage.constant = UIScreen.main.bounds.width
+            self.layoutIfNeeded()
+        }
+        UIView.animateKeyframes(withDuration: 0.3, delay: 0.5) {
+            self.closeProfileImageButton.alpha = 1
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupProfileHeaderView()
         setConstraints()
-        
+        setupTapGesture()
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-    
-

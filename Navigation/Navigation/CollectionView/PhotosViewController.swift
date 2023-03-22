@@ -9,7 +9,7 @@ import UIKit
 
 final class PhotosViewController: UIViewController {
     
-    let source: [Gallery] = Source.randomPhotos(with: 50)
+    let source: [Gallery] = Source.photos(with: 20)
     
     private let notification = NotificationCenter.default
     

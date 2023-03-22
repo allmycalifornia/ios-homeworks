@@ -33,6 +33,7 @@ final class PostViewController: UIViewController {
     @objc private func infoBarItemAction() {
         let infoVC = InfoViewController()
         infoVC.title = "Инфо"
+        
         infoVC.modalPresentationStyle = .fullScreen
         present(infoVC, animated: true)
     }
@@ -50,10 +51,6 @@ final class PostViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)

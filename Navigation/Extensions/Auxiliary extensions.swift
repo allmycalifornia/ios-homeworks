@@ -49,6 +49,14 @@ extension UITextField {
 }
 
 // расширение для скрытия клавиатуры
+extension ProfileTableHeaderView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        return true
+    }
+}
+
+// расширение для скрытия клавиатуры
 extension LogInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
@@ -71,6 +79,12 @@ extension PhotosViewController {
     }
 }
 
+// расширение для скрытия navbar'a
+extension FeedViewController {
+    func hideNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+}
 
 
 extension UIView {
@@ -78,41 +92,3 @@ extension UIView {
         String(describing: self)
     }
 }
-
-
-//// расширение Datasource
-//extension ProfileViewController: UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.postModel.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
-//        cell.setupCell(post: postModel[indexPath.row])
-////        if indexPath.row == 0 {
-////
-////        }
-//
-//        return cell
-//    }
-//}
-//
-//// расширение Delegate
-//extension ProfileViewController: UITableViewDelegate {
-//
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-//
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            postModel.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
-//}

@@ -10,6 +10,7 @@ import UIKit
 final class CollectionViewCell: UICollectionViewCell {
     
     var imageView = UIImageView()
+    var selectedImageView: UIImageView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,5 +35,5 @@ final class CollectionViewCell: UICollectionViewCell {
             imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
-   
+
 }

@@ -34,9 +34,12 @@ struct Source {
         ]
     }
 
-    static func randomPhotos(with count: Int) -> [Gallery] {
-        return (0..<count).map { _ in makeGallery().randomElement()! }
+    static func photos(with count: Int) -> [Gallery] {
+        let gallery = makeGallery()
+        guard count <= gallery.count else { return gallery }
+        return Array(gallery.shuffled())
     }
+
 }
 
 struct Gallery {
